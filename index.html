@@ -1,168 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PISCC | Peradeniya–Illinois–Sivananthan Collaboration Center</title>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Open Sans', sans-serif; color: #222; background: #fff; }
-    a { text-decoration: none; color: inherit; }
-    .topbar { background: #1a3a6b; color: white; display: flex; align-items: center; padding: 8px 30px; gap: 14px; }
-    .topbar img.uop-logo { width: 68px; height: 68px; object-fit: contain; flex-shrink: 0; mix-blend-mode: screen; filter: brightness(1.1) contrast(1.1); }
-    .topbar-title { font-family: 'Merriweather', serif; font-size: 1.4rem; font-weight: 900; line-height: 1.25; color: #fff; }
-    nav { background: #1a3a6b; border-top: 1px solid rgba(255,255,255,0.18); }
-    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
-    nav ul { list-style: none; display: flex; flex-wrap: wrap; }
-    nav ul li a { display: block; padding: 13px 20px; color: rgba(255,255,255,0.88); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; transition: background 0.2s, color 0.2s; }
-    nav ul li a:hover, nav ul li a.active { background: rgba(255,255,255,0.15); color: #fff; }
-    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 10px 16px; }
-    .hamburger span { display: block; width: 22px; height: 2px; background: white; margin: 5px 0; }
-    .hero { position: relative; height: 300px; overflow: hidden; background: #0f2347; }
-    .hero-img { width: 100%; height: 100%; object-fit: cover; opacity: 0.45; display: block; }
-    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(10,30,70,0.75) 0%, rgba(10,30,70,0.45) 50%, rgba(10,30,70,0.75) 100%); }
-    .hero-content { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 20px; }
-    .hero-content h1 { font-family: 'Merriweather', serif; font-size: clamp(1.5rem, 3.5vw, 2.6rem); font-weight: 900; text-transform: uppercase; letter-spacing: 0.04em; line-height: 1.25; color: #fff; text-shadow: 2px 3px 14px rgba(0,0,0,0.7); }
-    .hero-content h1 span { display: block; font-size: 0.55em; font-weight: 400; letter-spacing: 0.12em; color: #f0d080; margin-bottom: 10px; }
-    .main-wrap { max-width: 1100px; margin: 0 auto; padding: 36px 24px 48px; }
-    .content-grid { display: grid; grid-template-columns: 1fr 310px; gap: 32px; align-items: start; }
-    .welcome-col h2 { font-family: 'Merriweather', serif; font-size: 1.35rem; color: #1a3a6b; margin-bottom: 20px; font-weight: 700; }
-    .campus-img { width: 100%; height: 270px; object-fit: cover; border-radius: 3px; margin-bottom: 20px; display: block; }
-    .welcome-text p { font-size: 0.95rem; line-height: 1.8; color: #333; margin-bottom: 14px; }
-    .welcome-text strong { color: #1a3a6b; }
-    .read-more { display: inline-block; margin-top: 6px; background: #1a3a6b; color: white; padding: 9px 22px; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; border-radius: 2px; transition: background 0.2s; }
-    .read-more:hover { background: #243d62; }
-    .event-box { background: #1a3a6b; color: white; padding: 20px; border-radius: 2px; }
-    .event-box h3 { font-family: 'Merriweather', serif; font-size: 1.15rem; font-weight: 900; text-align: center; text-decoration: underline; text-transform: uppercase; margin-bottom: 18px; letter-spacing: 0.04em; color: #f0d080; }
-    .event-item { margin-bottom: 22px; padding-bottom: 22px; border-bottom: 1px solid rgba(255,255,255,0.15); }
-    .event-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-    .event-item h4 { font-size: 0.88rem; font-weight: 700; margin-bottom: 6px; color: #f0d080; }
-    .event-item p { font-size: 0.82rem; line-height: 1.55; color: rgba(255,255,255,0.85); margin-bottom: 10px; }
-    .event-flyer-img { width: 100%; border-radius: 3px; display: block; border: 1px solid rgba(255,255,255,0.2); }
-    .event-flyer-card { width: 100%; background: linear-gradient(135deg, #2c5282, #1e3a5f); padding: 14px; border-radius: 3px; font-size: 0.78rem; color: rgba(255,255,255,0.75); border: 1px solid rgba(255,255,255,0.2); }
-    .event-flyer-card strong { display: block; font-size: 0.88rem; color: #f0d080; margin-bottom: 5px; font-family: 'Merriweather', serif; }
-    .event-flyer-card .edate { color: #90cdf4; font-size: 0.75rem; margin-top: 5px; }
-    .event-link { display: inline-block; margin-top: 9px; font-size: 0.8rem; color: #90cdf4; text-decoration: underline; }
-    .stats-strip { display: grid; grid-template-columns: repeat(4, 1fr); background: #f0f4fa; border-top: 4px solid #1a3a6b; border-bottom: 4px solid #1a3a6b; margin-top: 40px; }
-    .stat-item { text-align: center; padding: 24px 12px; border-right: 1px solid #d0d8e8; }
-    .stat-item:last-child { border-right: none; }
-    .stat-num { font-family: 'Merriweather', serif; font-size: 2.2rem; font-weight: 900; color: #1a3a6b; }
-    .stat-lbl { font-size: 0.78rem; color: #555; margin-top: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
-    .partners-strip { background: #fff; border-top: 2px solid #e0e8f0; padding: 28px 24px; }
-    .partners-strip h3 { text-align: center; font-family: 'Merriweather', serif; font-size: 0.95rem; color: #1a3a6b; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.08em; }
-    .partner-logos { display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap; max-width: 900px; margin: 0 auto; }
-    .partner-item { text-align: center; }
-    .partner-badge { width: 70px; height: 70px; border-radius: 50%; background: #1a3a6b; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px; color: #f0d080; font-family: 'Merriweather', serif; font-size: 1rem; font-weight: 900; border: 3px solid #f0d080; }
-    .partner-item span { font-size: 0.75rem; color: #1a3a6b; font-weight: 700; display: block; max-width: 110px; line-height: 1.3; margin-top: 6px; }
-    footer { background: #1a3a6b; color: rgba(255,255,255,0.7); text-align: center; padding: 18px 20px; font-size: 0.82rem; }
-    footer a { color: #90cdf4; }
-    @media (max-width: 860px) {
-      .content-grid { grid-template-columns: 1fr; }
-      .stats-strip { grid-template-columns: repeat(2, 1fr); }
-      .hamburger { display: block; }
-      nav ul { flex-direction: column; display: none; }
-      nav ul.open { display: flex; }
-      .nav-inner { flex-direction: column; align-items: flex-end; }
-      .hero { height: 220px; }
-      .topbar-title { font-size: 1.1rem; }
-      .topbar { padding: 8px 16px; }
+    :root{--navy:#1a3a6b;--gold:#f0d080;--light:#f0f4fa;--border:#dde5f0;--text:#222;--muted:#555;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Open Sans',sans-serif;color:var(--text);background:#fff;}
+    img{max-width:100%;height:auto;display:block;}
+    a{text-decoration:none;color:inherit;}
+
+    /* ── TOPBAR ── */
+    .topbar{background:var(--navy);display:flex;align-items:center;padding:8px 5%;gap:14px;}
+    .topbar img.logo{width:68px;height:68px;object-fit:contain;flex-shrink:0;mix-blend-mode:screen;filter:brightness(1.1)contrast(1.1);}
+    .topbar-title{font-family:'Merriweather',serif;font-size:1.3rem;font-weight:900;line-height:1.25;color:#fff;}
+
+    /* ── NAV ── */
+    nav{background:var(--navy);border-top:1px solid rgba(255,255,255,0.18);position:sticky;top:0;z-index:100;}
+    .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 5%;}
+    nav ul{list-style:none;display:flex;flex-wrap:wrap;}
+    nav ul li a{display:block;padding:13px 16px;color:rgba(255,255,255,0.88);font-size:0.8rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;transition:background .2s,color .2s;}
+    nav ul li a:hover,nav ul li a.active{background:rgba(255,255,255,0.15);color:#fff;}
+    .hamburger{display:none;background:none;border:none;cursor:pointer;padding:12px;flex-shrink:0;}
+    .hamburger span{display:block;width:22px;height:2px;background:#fff;margin:5px 0;transition:all .3s;}
+
+    /* ── HERO ── */
+    .hero{position:relative;height:380px;overflow:hidden;}
+    .hero-slides{display:flex;height:100%;transition:transform .6s ease;}
+    .hero-slide{min-width:100%;height:100%;position:relative;}
+    .hero-slide img{width:100%;height:100%;object-fit:cover;}
+    .hero-slide::after{content:'';position:absolute;inset:0;background:rgba(10,28,60,0.55);}
+    .hero-content{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 5%;z-index:1;}
+    .hero-content h1{font-family:'Merriweather',serif;font-size:clamp(1.4rem,3.5vw,2.6rem);font-weight:900;color:#fff;text-transform:uppercase;letter-spacing:.04em;line-height:1.25;text-shadow:2px 3px 12px rgba(0,0,0,.6);}
+    .hero-content h1 span{display:block;font-size:.5em;color:var(--gold);letter-spacing:.12em;font-weight:400;margin-bottom:10px;}
+    .hero-dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:2;}
+    .hero-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.4);cursor:pointer;border:none;transition:background .2s;}
+    .hero-dot.active{background:var(--gold);}
+
+    /* ── MAIN LAYOUT ── */
+    .main-wrap{max-width:1200px;margin:0 auto;padding:40px 5% 60px;}
+    .content-grid{display:grid;grid-template-columns:1fr 310px;gap:32px;align-items:start;}
+
+    /* ── WELCOME ── */
+    .welcome-col h2{font-family:'Merriweather',serif;font-size:1.35rem;color:var(--navy);margin-bottom:18px;font-weight:700;}
+    .welcome-img{width:100%;height:260px;object-fit:cover;border-radius:3px;margin-bottom:20px;}
+    .welcome-text p{font-size:.95rem;line-height:1.85;color:#333;margin-bottom:14px;}
+    .welcome-text strong{color:var(--navy);}
+    .read-more{display:inline-block;margin-top:6px;background:var(--navy);color:#fff;padding:10px 22px;font-size:.82rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;border-radius:2px;transition:background .2s;}
+    .read-more:hover{background:#243d62;color:#fff;}
+
+    /* ── SIDEBAR ── */
+    .event-box{background:var(--navy);color:#fff;padding:20px;border-radius:3px;}
+    .event-box h3{font-family:'Merriweather',serif;font-size:1.1rem;font-weight:900;text-align:center;text-decoration:underline;text-transform:uppercase;margin-bottom:18px;color:var(--gold);}
+    .event-item{margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.15);}
+    .event-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+    .event-item h4{font-size:.86rem;font-weight:700;margin-bottom:6px;color:var(--gold);}
+    .event-item p{font-size:.82rem;line-height:1.55;color:rgba(255,255,255,.85);margin-bottom:10px;}
+    .event-flyer-img{width:100%;border-radius:3px;border:1px solid rgba(255,255,255,.2);}
+    .event-link{display:inline-block;margin-top:9px;font-size:.8rem;color:#90cdf4;text-decoration:underline;}
+    .event-mini{background:rgba(255,255,255,.08);border-radius:3px;padding:12px;font-size:.8rem;color:rgba(255,255,255,.75);}
+    .event-mini strong{display:block;color:var(--gold);margin-bottom:4px;font-family:'Merriweather',serif;}
+
+    /* ── STATS ── */
+    .stats-strip{display:grid;grid-template-columns:repeat(4,1fr);background:var(--light);border-top:4px solid var(--navy);border-bottom:4px solid var(--navy);margin-top:40px;}
+    .stat-item{text-align:center;padding:24px 12px;border-right:1px solid var(--border);}
+    .stat-item:last-child{border-right:none;}
+    .stat-num{font-family:'Merriweather',serif;font-size:2rem;font-weight:900;color:var(--navy);}
+    .stat-lbl{font-size:.75rem;color:var(--muted);margin-top:4px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;}
+
+    /* ── FOCUS PREVIEW ── */
+    .focus-preview{padding:48px 5%;background:#fff;}
+    .fp-inner{max-width:1200px;margin:0 auto;}
+    .section-head{text-align:center;margin-bottom:32px;}
+    .section-head h2{font-family:'Merriweather',serif;font-size:1.5rem;color:var(--navy);margin-bottom:8px;}
+    .section-head p{color:var(--muted);font-size:.9rem;}
+    .focus-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+    .focus-card{border:1px solid var(--border);border-top:4px solid var(--navy);border-radius:3px;overflow:hidden;transition:box-shadow .2s,border-top-color .2s;}
+    .focus-card:hover{box-shadow:0 6px 20px rgba(0,0,0,.1);border-top-color:var(--gold);}
+    .focus-card img{width:100%;height:160px;object-fit:cover;}
+    .focus-card-body{padding:16px;}
+    .focus-card-body h3{font-family:'Merriweather',serif;font-size:.95rem;color:var(--navy);margin-bottom:6px;}
+    .focus-card-body p{font-size:.82rem;color:var(--muted);line-height:1.6;}
+
+    /* ── PARTNERS ── */
+    .partners-strip{background:var(--light);border-top:2px solid var(--border);padding:28px 5%;}
+    .partners-strip h3{text-align:center;font-family:'Merriweather',serif;font-size:.9rem;color:var(--navy);margin-bottom:20px;text-transform:uppercase;letter-spacing:.08em;}
+    .partner-logos{display:flex;justify-content:center;align-items:center;gap:36px;flex-wrap:wrap;max-width:900px;margin:0 auto;}
+    .partner-item{text-align:center;}
+    .partner-badge{width:68px;height:68px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;margin:0 auto 8px;color:var(--gold);font-family:'Merriweather',serif;font-size:.9rem;font-weight:900;border:3px solid var(--gold);}
+    .partner-item img.pbadge{width:68px;height:68px;border-radius:50%;object-fit:cover;border:3px solid var(--navy);margin:0 auto 8px;}
+    .partner-item span{font-size:.72rem;color:var(--navy);font-weight:700;display:block;max-width:100px;line-height:1.3;}
+
+    /* ── FOOTER ── */
+    footer{background:var(--navy);color:rgba(255,255,255,.7);text-align:center;padding:20px;font-size:.82rem;}
+    footer a{color:#90cdf4;}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:960px){
+      .focus-cards{grid-template-columns:repeat(2,1fr);}
+      .content-grid{grid-template-columns:1fr;}
+      .stats-strip{grid-template-columns:repeat(2,1fr);}
+      .stat-item:nth-child(2){border-right:none;}
+    }
+    @media(max-width:680px){
+      .hamburger{display:block;}
+      nav ul{flex-direction:column;display:none;width:100%;}
+      nav ul.open{display:flex;}
+      nav ul li a{padding:12px 20px;border-top:1px solid rgba(255,255,255,.1);}
+      .nav-inner{flex-wrap:wrap;padding:0;}
+      .topbar{padding:8px 4%;}
+      .topbar-title{font-size:1.1rem;}
+      .hero{height:250px;}
+      .focus-cards{grid-template-columns:1fr 1fr;}
+      .stats-strip{grid-template-columns:repeat(2,1fr);}
+    }
+    @media(max-width:420px){
+      .focus-cards{grid-template-columns:1fr;}
+      .hero-content h1{font-size:1.2rem;}
     }
   </style>
 </head>
 <body>
 
-<!-- TOP BAR -->
 <div class="topbar">
-  <img src="pera.jpg" alt="University of Peradeniya Crest" class="uop-logo" />
+  <img src="pera.jpg" alt="University of Peradeniya Crest" class="logo"/>
   <div class="topbar-title">University of<br>Peradeniya</div>
 </div>
 
-<!-- NAVIGATION -->
 <nav>
   <div class="nav-inner">
-    <button class="hamburger" aria-label="Toggle menu"
-      onclick="document.getElementById('navmenu').classList.toggle('open')">
+    <button class="hamburger" aria-label="Menu" onclick="document.getElementById('nm').classList.toggle('open')">
       <span></span><span></span><span></span>
     </button>
-    <ul id="navmenu">
+    <ul id="nm">
       <li><a href="index.html" class="active">HOME</a></li>
       <li><a href="about.html">ABOUT US</a></li>
       <li><a href="focus-areas.html">FOCUS AREAS</a></li>
       <li><a href="history.html">HISTORY</a></li>
       <li><a href="events.html">EVENTS</a></li>
-      <li><a href="#gallery">GALLERY</a></li>
+      <li><a href="gallery.html">GALLERY</a></li>
       <li><a href="contact.html">CONTACT</a></li>
     </ul>
   </div>
 </nav>
 
-<!-- HERO BANNER -->
-<div class="hero">
-  <img src="39.png" alt="University of Peradeniya Campus" class="hero-img" />
-  <div class="hero-overlay"></div>
+<!-- HERO SLIDESHOW using 1.jpg, 2.jpg, 3.jpg -->
+<div class="hero" id="hero">
+  <div class="hero-slides" id="heroSlides">
+    <div class="hero-slide"><img src="1.jpg" alt="Campus"/></div>
+    <div class="hero-slide"><img src="2.jpg" alt="Collaboration"/></div>
+    <div class="hero-slide"><img src="3.jpg" alt="Research"/></div>
+  </div>
   <div class="hero-content">
-    <h1>
-      <span>University of Peradeniya</span>
-      Peradeniya – Illinois –<br>Sivananthan<br>Collaboration Center
-    </h1>
+    <h1><span>University of Peradeniya</span>Peradeniya – Illinois –<br>Sivananthan Collaboration Center</h1>
+  </div>
+  <div class="hero-dots" id="heroDots">
+    <button class="hero-dot active" onclick="goSlide(0)"></button>
+    <button class="hero-dot" onclick="goSlide(1)"></button>
+    <button class="hero-dot" onclick="goSlide(2)"></button>
   </div>
 </div>
 
 <!-- MAIN CONTENT -->
 <div class="main-wrap">
   <div class="content-grid">
-
-    <!-- LEFT: Welcome -->
     <div class="welcome-col">
       <h2>Welcome to the Peradeniya – Illinois – Sivananthan Collaboration Center</h2>
-      <img src="39.png" alt="University of Peradeniya Campus" class="campus-img" />
+      <img src="4.jpg" alt="University Campus" class="welcome-img"/>
       <div class="welcome-text">
         <p>The <strong>Peradeniya–Illinois–Sivananthan Collaboration Center (PISCC)</strong> is a proposed institutional mechanism designed to formalize, coordinate, and expand a long-standing and highly productive partnership between the University of Peradeniya (Sri Lanka), the University of Illinois System (USA), and Sivananthan Laboratories Inc. (USA).</p>
         <p>This initiative brings together years of academic cooperation, scientific exchange, and capacity building into a structured framework that supports long-term sustainability, strategic growth, and global impact. The collaboration dates back more than <strong>fifty years</strong>, beginning in the 1970s with agricultural development cooperation and early medical education support.</p>
-        <p>Over time, this relationship has expanded to include agricultural innovation, medical education reform, veterinary science, renewable energy research, and advanced technology development. The Center ensures these activities operate through a coherent institutional structure that enhances efficiency, accountability, and scalability.</p>
+        <p>Over time, this relationship has expanded to include agricultural innovation, medical education reform, veterinary science, renewable energy research, and advanced technology development.</p>
         <a href="about.html" class="read-more">Read More →</a>
       </div>
     </div>
-
-    <!-- RIGHT: Sidebar -->
     <div class="sidebar">
       <div class="event-box">
         <h3>Upcoming Event</h3>
-
         <div class="event-item">
-          <h4>Golden Jubilee Celebration — 50th Anniversary</h4>
-          <p>Celebrating Collaborative Partnerships among the University of Peradeniya, the University of Illinois System, and Sivananthan Laboratories Inc., USA — in conjunction with the Golden Jubilee of the 1976 Batch.</p>
-          <img src="39.png" alt="Golden Jubilee Event Flyer" class="event-flyer-img" />
-          <a href="https://learn.zoom.us/j/94268528901?pwd=GCMclyGcoecYrrRnSLRzyFBs4alPkn.1"
-             target="_blank" class="event-link">Join via Zoom →</a>
+          <h4>Golden Jubilee — 50th Anniversary</h4>
+          <p>Celebrating Collaborative Partnerships among UoP, University of Illinois System, and Sivananthan Laboratories Inc., USA — Golden Jubilee of the 1976 Batch.</p>
+          <img src="39.png" alt="Golden Jubilee Flyer" class="event-flyer-img"/>
+          <a href="https://learn.zoom.us/j/94268528901?pwd=GCMclyGcoecYrrRnSLRzyFBs4alPkn.1" target="_blank" class="event-link">Join via Zoom →</a>
         </div>
-
         <div class="event-item">
           <h4>Solar Technology Workshop</h4>
-          <p>Capacity-building on thin-film solar technologies with Sivananthan Laboratories Inc. across Sri Lankan universities.</p>
-          <div class="event-flyer-card">
-            <strong>Solar Energy Training 2025</strong>
-            Multiple Sri Lankan Universities
-            <div class="edate">2025 — Upcoming</div>
-          </div>
+          <div class="event-mini"><strong>Solar Energy Training 2025</strong>With Sivananthan Laboratories Inc.</div>
           <a href="events.html" class="event-link">Read more →</a>
         </div>
-
         <div class="event-item">
           <h4>Soybean Field Trials</h4>
-          <p>Joint evaluation of high-yield soybean varieties with the UI Soybean Innovation Lab &amp; Dept. of Agriculture.</p>
-          <div class="event-flyer-card">
-            <strong>Soybean Innovation 2025</strong>
-            Sri Lanka Agroecological Zone Trials
-            <div class="edate">Ongoing — 2025</div>
-          </div>
+          <div class="event-mini"><strong>Soybean Innovation 2025</strong>UI Soybean Innovation Lab &amp; Dept. of Agriculture</div>
           <a href="events.html" class="event-link">Read more →</a>
         </div>
-
       </div>
     </div>
-
   </div>
 </div>
 
@@ -174,12 +209,40 @@
   <div class="stat-item"><div class="stat-num">2</div><div class="stat-lbl">Countries</div></div>
 </div>
 
+<!-- FOCUS PREVIEW -->
+<div class="focus-preview">
+  <div class="fp-inner">
+    <div class="section-head">
+      <h2>Our Focus Areas</h2>
+      <p>Four interdisciplinary pillars driving research and innovation across Sri Lanka and the United States.</p>
+    </div>
+    <div class="focus-cards">
+      <a href="focus-areas.html#agri" class="focus-card">
+        <img src="5.jpg" alt="Agriculture"/>
+        <div class="focus-card-body"><h3>🌾 Agriculture &amp; Food Security</h3><p>High-yield soybean varieties, SMART FARM technologies, and sustainable feed alternatives.</p></div>
+      </a>
+      <a href="focus-areas.html#med" class="focus-card">
+        <img src="8.jpg" alt="Medical"/>
+        <div class="focus-card-body"><h3>🏥 Medical &amp; Health Sciences</h3><p>AI in medical education, CKDu research, neurology, and surgical innovation.</p></div>
+      </a>
+      <a href="focus-areas.html#vet" class="focus-card">
+        <img src="12.jpg" alt="Veterinary"/>
+        <div class="focus-card-body"><h3>🐾 Veterinary &amp; One Health</h3><p>Equine medicine, zoonotic disease research, and wildlife health under the One Health framework.</p></div>
+      </a>
+      <a href="focus-areas.html#energy" class="focus-card">
+        <img src="15.jpg" alt="Energy"/>
+        <div class="focus-card-body"><h3>☀️ Renewable Energy</h3><p>Thin-film solar cell development, prototype manufacturing, and technology transfer.</p></div>
+      </a>
+    </div>
+  </div>
+</div>
+
 <!-- PARTNERS -->
 <div class="partners-strip">
   <h3>Partner Institutions</h3>
   <div class="partner-logos">
     <div class="partner-item">
-      <img src="pera.jpg" alt="University of Peradeniya" style="width:70px;height:70px;border-radius:50%;object-fit:cover;border:3px solid #1a3a6b;display:block;margin:0 auto;" />
+      <img src="pera.jpg" alt="University of Peradeniya" class="pbadge"/>
       <span>University of Peradeniya</span>
     </div>
     <div class="partner-item">
@@ -187,23 +250,32 @@
       <span>University of Illinois System</span>
     </div>
     <div class="partner-item">
-      <div class="partner-badge" style="font-size:0.75rem;">SL<br>Labs</div>
-      <span>Sivananthan Laboratories Inc.</span>
+      <div class="partner-badge" style="font-size:.7rem;">SL<br>Labs</div>
+      <span>Sivananthan Laboratories</span>
     </div>
     <div class="partner-item">
-      <div class="partner-badge" style="font-size:0.82rem;">UIC</div>
+      <div class="partner-badge" style="font-size:.75rem;">UIC</div>
       <span>University of Illinois Chicago</span>
     </div>
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
-  <p>© <span id="yr"></span> Peradeniya–Illinois–Sivananthan Collaboration Center &nbsp;|&nbsp;
-  University of Peradeniya, Sri Lanka &nbsp;|&nbsp;
-  <a href="contact.html">Contact Us</a></p>
+  <p>© <span id="yr"></span> Peradeniya–Illinois–Sivananthan Collaboration Center &nbsp;|&nbsp; University of Peradeniya, Sri Lanka &nbsp;|&nbsp; <a href="contact.html">Contact Us</a></p>
 </footer>
 
-<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+let cur=0,tot=3,auto;
+function goSlide(n){
+  cur=n;
+  document.getElementById('heroSlides').style.transform='translateX(-'+n*100+'%)';
+  document.querySelectorAll('.hero-dot').forEach((d,i)=>d.classList.toggle('active',i===n));
+}
+function nextSlide(){goSlide((cur+1)%tot);}
+auto=setInterval(nextSlide,4000);
+document.getElementById('hero').addEventListener('mouseenter',()=>clearInterval(auto));
+document.getElementById('hero').addEventListener('mouseleave',()=>{auto=setInterval(nextSlide,4000);});
+</script>
 </body>
 </html>
