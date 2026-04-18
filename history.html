@@ -1,150 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>History | PISCC</title>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
   <style>
+    :root{--navy:#1a3a6b;--gold:#f0d080;--light:#f0f4fa;--border:#dde5f0;}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     body{font-family:'Open Sans',sans-serif;color:#222;background:#fff;}
+    img{max-width:100%;display:block;}
     a{text-decoration:none;color:inherit;}
-    .topbar{background:#1a3a6b;color:white;display:flex;align-items:center;padding:8px 30px;gap:14px;}
-    .topbar img.uop-logo{width:68px;height:68px;object-fit:contain;flex-shrink:0;mix-blend-mode:screen;filter:brightness(1.1) contrast(1.1);}
-    .topbar-title{font-family:'Merriweather',serif;font-size:1.4rem;font-weight:900;line-height:1.25;color:#fff;}
-    nav{background:#1a3a6b;border-top:1px solid rgba(255,255,255,0.18);}
-    .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;}
+    .topbar{background:var(--navy);display:flex;align-items:center;padding:8px 5%;gap:14px;}
+    .topbar img.logo{width:68px;height:68px;object-fit:contain;flex-shrink:0;mix-blend-mode:screen;filter:brightness(1.1)contrast(1.1);}
+    .topbar-title{font-family:'Merriweather',serif;font-size:1.3rem;font-weight:900;line-height:1.25;color:#fff;}
+    nav{background:var(--navy);border-top:1px solid rgba(255,255,255,.18);position:sticky;top:0;z-index:100;}
+    .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 5%;}
     nav ul{list-style:none;display:flex;flex-wrap:wrap;}
-    nav ul li a{display:block;padding:13px 20px;color:rgba(255,255,255,0.88);font-size:0.82rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;transition:background 0.2s,color 0.2s;}
-    nav ul li a:hover,nav ul li a.active{background:rgba(255,255,255,0.15);color:#fff;}
-    .hamburger{display:none;background:none;border:none;cursor:pointer;padding:10px 16px;}
-    .hamburger span{display:block;width:22px;height:2px;background:white;margin:5px 0;}
-    .page-banner{background:#1a3a6b;padding:48px 24px;text-align:center;}
-    .page-banner .breadcrumb{font-size:0.8rem;color:rgba(255,255,255,0.5);margin-bottom:10px;}
-    .page-banner .breadcrumb a{color:#90cdf4;}
-    .page-banner h1{font-family:'Merriweather',serif;font-size:clamp(1.4rem,3vw,2.2rem);font-weight:900;color:#f0d080;text-transform:uppercase;letter-spacing:0.04em;}
-    .page-banner p{color:rgba(255,255,255,0.75);margin-top:10px;font-size:0.95rem;max-width:700px;margin-left:auto;margin-right:auto;}
-    .main-wrap{max-width:900px;margin:0 auto;padding:48px 24px 64px;}
-    h2.section-title{font-family:'Merriweather',serif;font-size:1.35rem;color:#1a3a6b;border-left:5px solid #f0d080;padding-left:14px;margin-bottom:28px;}
-    p.body-text{font-size:0.96rem;line-height:1.85;color:#333;margin-bottom:14px;}
+    nav ul li a{display:block;padding:13px 16px;color:rgba(255,255,255,.88);font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;transition:background .2s,color .2s;}
+    nav ul li a:hover,nav ul li a.active{background:rgba(255,255,255,.15);color:#fff;}
+    .hamburger{display:none;background:none;border:none;cursor:pointer;padding:12px;}
+    .hamburger span{display:block;width:22px;height:2px;background:#fff;margin:5px 0;}
+    .banner-img{width:100%;height:240px;object-fit:cover;}
+    .page-banner{background:var(--navy);padding:40px 5%;text-align:center;}
+    .page-banner .bc{font-size:.8rem;color:rgba(255,255,255,.5);margin-bottom:8px;}
+    .page-banner .bc a{color:#90cdf4;}
+    .page-banner h1{font-family:'Merriweather',serif;font-size:clamp(1.4rem,3vw,2.2rem);font-weight:900;color:var(--gold);text-transform:uppercase;}
+    .page-banner p{color:rgba(255,255,255,.75);margin-top:8px;font-size:.92rem;max-width:680px;margin-left:auto;margin-right:auto;}
+    .main-wrap{max-width:1000px;margin:0 auto;padding:48px 5% 64px;}
+    h2.sec{font-family:'Merriweather',serif;font-size:1.3rem;color:var(--navy);border-left:5px solid var(--gold);padding-left:14px;margin-bottom:24px;}
+    p.bt{font-size:.95rem;line-height:1.85;color:#333;margin-bottom:14px;}
     /* Timeline */
-    .timeline{position:relative;padding-left:0;}
-    .timeline::before{content:'';position:absolute;left:80px;top:0;bottom:0;width:3px;background:#1a3a6b;}
-    .tl-item{display:grid;grid-template-columns:80px 1fr;gap:0;margin-bottom:0;position:relative;}
-    .tl-year{font-family:'Merriweather',serif;font-size:0.82rem;font-weight:900;color:#1a3a6b;text-align:right;padding-right:24px;padding-top:4px;line-height:1.3;}
-    .tl-dot{position:absolute;left:72px;top:6px;width:18px;height:18px;border-radius:50%;background:#f0d080;border:3px solid #1a3a6b;z-index:1;}
-    .tl-content{padding:0 0 40px 28px;}
-    .tl-content h3{font-family:'Merriweather',serif;font-size:1.05rem;color:#1a3a6b;margin-bottom:8px;}
-    .tl-content p{font-size:0.92rem;line-height:1.75;color:#444;}
-    .tl-item:last-child .tl-content{padding-bottom:0;}
-    .tl-item.highlight .tl-dot{background:#1a3a6b;border-color:#f0d080;}
-    .tl-item.highlight .tl-content{background:#f0f4fa;border-left:4px solid #f0d080;padding-left:24px;border-radius:0 4px 4px 0;}
-    footer{background:#1a3a6b;color:rgba(255,255,255,0.7);text-align:center;padding:18px 20px;font-size:0.82rem;}
+    .timeline{position:relative;margin-top:12px;}
+    .timeline::before{content:'';position:absolute;left:88px;top:0;bottom:0;width:3px;background:var(--navy);}
+    .tl{display:grid;grid-template-columns:88px 1fr;margin-bottom:0;position:relative;}
+    .tl-year{font-family:'Merriweather',serif;font-size:.78rem;font-weight:900;color:var(--navy);text-align:right;padding-right:22px;padding-top:4px;line-height:1.3;}
+    .tl-dot{position:absolute;left:80px;top:5px;width:18px;height:18px;border-radius:50%;background:var(--gold);border:3px solid var(--navy);z-index:1;}
+    .tl-body{padding:0 0 36px 26px;}
+    .tl-body h3{font-family:'Merriweather',serif;font-size:1.05rem;color:var(--navy);margin-bottom:8px;}
+    .tl-body p{font-size:.91rem;line-height:1.75;color:#444;margin-bottom:10px;}
+    .tl-body img{width:100%;height:180px;object-fit:cover;border-radius:3px;margin-top:10px;}
+    .tl.highlight .tl-dot{background:var(--navy);border-color:var(--gold);}
+    .tl.highlight .tl-body{background:var(--light);border-left:4px solid var(--gold);padding-left:22px;border-radius:0 4px 4px 0;}
+    footer{background:var(--navy);color:rgba(255,255,255,.7);text-align:center;padding:20px;font-size:.82rem;}
     footer a{color:#90cdf4;}
-    @media(max-width:600px){.timeline::before{left:60px;}.tl-year{font-size:0.72rem;padding-right:16px;}.tl-dot{left:52px;}.tl-content{padding-left:20px;}.hamburger{display:block;}nav ul{flex-direction:column;display:none;}nav ul.open{display:flex;}.nav-inner{flex-direction:column;align-items:flex-end;}.topbar{padding:8px 16px;}.topbar-title{font-size:1.1rem;}}
+    @media(max-width:680px){.hamburger{display:block;}nav ul{flex-direction:column;display:none;width:100%;}nav ul.open{display:flex;}nav ul li a{padding:12px 20px;border-top:1px solid rgba(255,255,255,.1);}.nav-inner{flex-wrap:wrap;padding:0;}.topbar{padding:8px 4%;}.topbar-title{font-size:1.05rem;}.timeline::before{left:58px;}.tl{grid-template-columns:58px 1fr;}.tl-dot{left:50px;}.tl-year{font-size:.68rem;padding-right:14px;}}
   </style>
 </head>
 <body>
-<div class="topbar">
-  <img src="pera.jpg" alt="University of Peradeniya Crest" class="uop-logo"/>
-  <div class="topbar-title">University of<br>Peradeniya</div>
-</div>
-<nav>
-  <div class="nav-inner">
-    <button class="hamburger" onclick="document.getElementById('nm').classList.toggle('open')"><span></span><span></span><span></span></button>
-    <ul id="nm">
-      <li><a href="index.html">HOME</a></li>
-      <li><a href="about.html">ABOUT US</a></li>
-      <li><a href="focus-areas.html">FOCUS AREAS</a></li>
-      <li><a href="history.html" class="active">HISTORY</a></li>
-      <li><a href="events.html">EVENTS</a></li>
-      <li><a href="gallery.html">GALLERY</a></li>
-      <li><a href="contact.html">CONTACT</a></li>
-    </ul>
-  </div>
-</nav>
+<div class="topbar"><img src="pera.jpg" alt="UoP Crest" class="logo"/><div class="topbar-title">University of<br>Peradeniya</div></div>
+<nav><div class="nav-inner">
+  <button class="hamburger" onclick="document.getElementById('nm').classList.toggle('open')"><span></span><span></span><span></span></button>
+  <ul id="nm">
+    <li><a href="index.html">HOME</a></li><li><a href="about.html">ABOUT US</a></li><li><a href="focus-areas.html">FOCUS AREAS</a></li><li><a href="history.html" class="active">HISTORY</a></li><li><a href="events.html">EVENTS</a></li><li><a href="gallery.html">GALLERY</a></li><li><a href="contact.html">CONTACT</a></li>
+  </ul>
+</div></nav>
 
+<img src="18.png" alt="History" class="banner-img"/>
 <div class="page-banner">
-  <div class="breadcrumb"><a href="index.html">Home</a> / History</div>
+  <div class="bc"><a href="index.html">Home</a> / History</div>
   <h1>History</h1>
   <p>A fifty-year story of academic cooperation, scientific exchange, and enduring partnership between Sri Lanka and the United States.</p>
 </div>
 
 <div class="main-wrap">
-  <h2 class="section-title">Historical Foundation of the Collaboration</h2>
-  <p class="body-text" style="margin-bottom:40px;">The origins of this partnership can be traced to the early 1970s. What began as agricultural and medical education cooperation has evolved over five decades into a wide-ranging, multidisciplinary global collaboration.</p>
+  <h2 class="sec">Historical Foundation of the Collaboration</h2>
+  <p class="bt" style="margin-bottom:36px;">The origins of this partnership can be traced to the early 1970s. What began as agricultural and medical education cooperation has evolved over five decades into a wide-ranging, multidisciplinary global collaboration.</p>
 
   <div class="timeline">
-
-    <div class="tl-item">
+    <div class="tl">
       <div class="tl-year">Early<br>1970s</div>
       <div class="tl-dot"></div>
-      <div class="tl-content">
+      <div class="tl-body">
         <h3>INTSOY Soybean Program — Agricultural Foundation</h3>
-        <p>Sri Lanka benefited from international efforts led by the University of Illinois through the UNDP-supported INTSOY program, which introduced and promoted soybean cultivation. At a time when soybean was not widely cultivated in Sri Lanka, this initiative demonstrated its potential as a high-protein crop contributing to food security, agricultural diversification, and rural development.</p>
+        <p>Sri Lanka benefited from international efforts led by the University of Illinois through the UNDP-supported INTSOY program, which introduced and promoted soybean cultivation. This initiative demonstrated its potential as a high-protein crop contributing to food security, agricultural diversification, and rural development.</p>
+        <img src="19.png" alt="1970s Agriculture"/>
       </div>
     </div>
 
-    <div class="tl-item">
+    <div class="tl">
       <div class="tl-year">1970s</div>
       <div class="tl-dot"></div>
-      <div class="tl-content">
+      <div class="tl-body">
         <h3>UIC Medical Education Exchange</h3>
-        <p>The University of Illinois Chicago (UIC), through its Department of Medical Education, contributed significantly to the development of modern medical education in Sri Lanka. Sri Lankan academics received advanced training at UIC and returned to establish foundational structures at the University of Peradeniya — leading to the creation of Sri Lanka's first formal Medical Education Unit, which influenced medical training practices across the country.</p>
+        <p>The University of Illinois Chicago (UIC), through its Department of Medical Education, contributed significantly to the development of modern medical education in Sri Lanka. Sri Lankan academics received advanced training at UIC and returned to establish foundational structures at the University of Peradeniya — leading to the creation of Sri Lanka's first formal Medical Education Unit.</p>
+        <img src="20.jpg" alt="Medical Education History"/>
       </div>
     </div>
 
-    <div class="tl-item">
+    <div class="tl">
       <div class="tl-year">2012</div>
       <div class="tl-dot"></div>
-      <div class="tl-content">
+      <div class="tl-body">
         <h3>Solar Energy Awareness Programs Begin</h3>
         <p>Multiple awareness and capacity-building programs were launched across Sri Lankan universities to promote solar energy technologies. Research into thin-film solar cell development and prototype manufacturing began, marking the expansion of the collaboration into the renewable energy sector.</p>
       </div>
     </div>
 
-    <div class="tl-item">
+    <div class="tl">
       <div class="tl-year">2021–<br>Present</div>
       <div class="tl-dot"></div>
-      <div class="tl-content">
+      <div class="tl-body">
         <h3>Sivananthan Laboratories Joins — Modern Research Phase</h3>
-        <p>Over the past three years, the collaboration has been further strengthened through the active engagement of Sivananthan Laboratories Inc., led by distinguished University of Peradeniya alumnus Dr. Sivalingam Sivananthan. This phase expanded cooperation beyond traditional academic exchange into applied research, technology development, and innovation-driven initiatives in renewable energy, agriculture, and health sciences.</p>
+        <p>The collaboration was further strengthened through the active engagement of Sivananthan Laboratories Inc., led by distinguished University of Peradeniya alumnus Dr. Sivalingam Sivananthan. This phase expanded cooperation into applied research, technology development, and innovation-driven initiatives across renewable energy, agriculture, and health sciences.</p>
+        <img src="21.jpg" alt="Modern Research"/>
       </div>
     </div>
 
-    <div class="tl-item">
+    <div class="tl">
       <div class="tl-year">Recent</div>
       <div class="tl-dot"></div>
-      <div class="tl-content">
-        <h3>Revival of Agricultural Collaboration</h3>
-        <p>Agricultural collaboration was revived through the introduction of improved soybean varieties and modern farming technologies in partnership with the University of Illinois Soybean Innovation Lab and the Sri Lankan Department of Agriculture. SMART FARM systems are being explored to improve productivity, sustainability, and resilience.</p>
-      </div>
-    </div>
-
-    <div class="tl-item">
-      <div class="tl-year">Recent</div>
-      <div class="tl-dot"></div>
-      <div class="tl-content">
+      <div class="tl-body">
         <h3>Expansion of Medical &amp; Health Sciences Research</h3>
-        <p>Medical and health sciences collaboration expanded significantly with faculty exchanges, training programs, and joint research initiatives across nephrology, neurology, mental health, immunology, surgery, and rehabilitation medicine. Research into chronic kidney disease of unknown etiology (CKDu) and AI in medical education emerged as key priorities.</p>
+        <p>Medical and health sciences collaboration expanded significantly with faculty exchanges, training programs, and joint research initiatives across nephrology, neurology, mental health, immunology, surgery, and rehabilitation medicine. AI in medical education emerged as a key priority.</p>
+        <img src="22.jpg" alt="Health Sciences"/>
       </div>
     </div>
 
-    <div class="tl-item highlight">
+    <div class="tl highlight">
       <div class="tl-year">2024–<br>Present</div>
       <div class="tl-dot"></div>
-      <div class="tl-content">
+      <div class="tl-body">
         <h3>🏛️ Formal Center Proposed — PISCC Established</h3>
         <p>The Peradeniya–Illinois–Sivananthan Collaboration Center (PISCC) is formally proposed, transitioning fifty years of informal partnership into a structured, accountable, and scalable institutional framework — ensuring long-term sustainability, strategic growth, and global impact.</p>
+        <img src="39.png" alt="Golden Jubilee 2026"/>
       </div>
     </div>
-
   </div>
 </div>
 
-<footer>
-  <p>© <span id="yr"></span> Peradeniya–Illinois–Sivananthan Collaboration Center &nbsp;|&nbsp; University of Peradeniya, Sri Lanka &nbsp;|&nbsp; <a href="contact.html">Contact Us</a></p>
-</footer>
+<footer><p>© <span id="yr"></span> Peradeniya–Illinois–Sivananthan Collaboration Center &nbsp;|&nbsp; University of Peradeniya, Sri Lanka &nbsp;|&nbsp; <a href="contact.html">Contact Us</a></p></footer>
 <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
-</body>
-</html>
+</body></html>
