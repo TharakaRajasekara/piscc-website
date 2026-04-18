@@ -1,75 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>About Us | PISCC</title>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
   <style>
+    :root{--navy:#1a3a6b;--gold:#f0d080;--light:#f0f4fa;--border:#dde5f0;}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     body{font-family:'Open Sans',sans-serif;color:#222;background:#fff;}
+    img{max-width:100%;display:block;}
     a{text-decoration:none;color:inherit;}
-    .topbar{background:#1a3a6b;color:white;display:flex;align-items:center;padding:8px 30px;gap:14px;}
-    .topbar img.uop-logo{width:68px;height:68px;object-fit:contain;flex-shrink:0;mix-blend-mode:screen;filter:brightness(1.1) contrast(1.1);}
-    .topbar-title{font-family:'Merriweather',serif;font-size:1.4rem;font-weight:900;line-height:1.25;color:#fff;}
-    nav{background:#1a3a6b;border-top:1px solid rgba(255,255,255,0.18);}
-    .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;}
+    .topbar{background:var(--navy);display:flex;align-items:center;padding:8px 5%;gap:14px;}
+    .topbar img.logo{width:68px;height:68px;object-fit:contain;flex-shrink:0;mix-blend-mode:screen;filter:brightness(1.1)contrast(1.1);}
+    .topbar-title{font-family:'Merriweather',serif;font-size:1.3rem;font-weight:900;line-height:1.25;color:#fff;}
+    nav{background:var(--navy);border-top:1px solid rgba(255,255,255,.18);position:sticky;top:0;z-index:100;}
+    .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 5%;}
     nav ul{list-style:none;display:flex;flex-wrap:wrap;}
-    nav ul li a{display:block;padding:13px 20px;color:rgba(255,255,255,0.88);font-size:0.82rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;transition:background 0.2s,color 0.2s;}
-    nav ul li a:hover,nav ul li a.active{background:rgba(255,255,255,0.15);color:#fff;}
-    .hamburger{display:none;background:none;border:none;cursor:pointer;padding:10px 16px;}
-    .hamburger span{display:block;width:22px;height:2px;background:white;margin:5px 0;}
-    .page-banner{background:#1a3a6b;padding:48px 24px;text-align:center;}
-    .page-banner .breadcrumb{font-size:0.8rem;color:rgba(255,255,255,0.5);margin-bottom:10px;}
-    .page-banner .breadcrumb a{color:#90cdf4;}
-    .page-banner h1{font-family:'Merriweather',serif;font-size:clamp(1.4rem,3vw,2.2rem);font-weight:900;color:#f0d080;text-transform:uppercase;letter-spacing:0.04em;}
-    .page-banner p{color:rgba(255,255,255,0.75);margin-top:10px;font-size:0.95rem;max-width:700px;margin-left:auto;margin-right:auto;}
-    .main-wrap{max-width:1100px;margin:0 auto;padding:48px 24px 64px;}
+    nav ul li a{display:block;padding:13px 16px;color:rgba(255,255,255,.88);font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;transition:background .2s,color .2s;}
+    nav ul li a:hover,nav ul li a.active{background:rgba(255,255,255,.15);color:#fff;}
+    .hamburger{display:none;background:none;border:none;cursor:pointer;padding:12px;}
+    .hamburger span{display:block;width:22px;height:2px;background:#fff;margin:5px 0;}
+    .banner-img{width:100%;height:240px;object-fit:cover;}
+    .page-banner{background:var(--navy);padding:40px 5%;text-align:center;}
+    .page-banner .bc{font-size:.8rem;color:rgba(255,255,255,.5);margin-bottom:8px;}
+    .page-banner .bc a{color:#90cdf4;}
+    .page-banner h1{font-family:'Merriweather',serif;font-size:clamp(1.4rem,3vw,2.2rem);font-weight:900;color:var(--gold);text-transform:uppercase;letter-spacing:.04em;}
+    .page-banner p{color:rgba(255,255,255,.75);margin-top:8px;font-size:.92rem;max-width:680px;margin-left:auto;margin-right:auto;}
+    .main-wrap{max-width:1200px;margin:0 auto;padding:48px 5% 64px;}
     .two-col{display:grid;grid-template-columns:2fr 1fr;gap:40px;align-items:start;}
-    h2.section-title{font-family:'Merriweather',serif;font-size:1.35rem;color:#1a3a6b;border-left:5px solid #f0d080;padding-left:14px;margin-bottom:18px;}
-    h3.sub-title{font-family:'Merriweather',serif;font-size:1.05rem;color:#1a3a6b;margin:28px 0 10px;}
-    p.body-text{font-size:0.96rem;line-height:1.85;color:#333;margin-bottom:14px;}
-    .section-block{margin-bottom:48px;padding-bottom:48px;border-bottom:1px solid #e8edf5;}
-    .section-block:last-child{border-bottom:none;}
-    .info-card{background:#f0f4fa;border-left:4px solid #1a3a6b;border-radius:3px;padding:20px 24px;margin-bottom:16px;}
-    .info-card h4{font-family:'Merriweather',serif;font-size:0.95rem;color:#1a3a6b;margin-bottom:8px;}
-    .info-card p{font-size:0.88rem;color:#444;line-height:1.7;margin:0;}
-    .goal-list{list-style:none;padding:0;}
-    .goal-list li{font-size:0.9rem;color:#333;padding:9px 0;border-bottom:1px solid #e0e8f0;display:flex;align-items:flex-start;gap:10px;line-height:1.6;}
+    h2.sec{font-family:'Merriweather',serif;font-size:1.3rem;color:var(--navy);border-left:5px solid var(--gold);padding-left:14px;margin-bottom:20px;}
+    h3.sub{font-family:'Merriweather',serif;font-size:1.05rem;color:var(--navy);margin:28px 0 10px;}
+    p.bt{font-size:.95rem;line-height:1.85;color:#333;margin-bottom:14px;}
+    .sb{margin-bottom:48px;padding-bottom:48px;border-bottom:1px solid var(--border);}
+    .sb:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+    .img-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0;}
+    .img-row img{width:100%;height:180px;object-fit:cover;border-radius:3px;}
+    .goal-list{list-style:none;padding:0;margin-top:12px;}
+    .goal-list li{font-size:.9rem;color:#333;padding:9px 0;border-bottom:1px solid var(--border);display:flex;gap:10px;line-height:1.6;}
     .goal-list li:last-child{border-bottom:none;}
-    .goal-list li::before{content:"✦";color:#f0d080;flex-shrink:0;margin-top:2px;}
-    .partner-sidebar{display:flex;flex-direction:column;gap:14px;}
-    .partner-card{background:#1a3a6b;color:white;border-radius:4px;padding:18px 20px;}
-    .partner-card .ptag{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:#f0d080;margin-bottom:6px;font-weight:700;}
+    .goal-list li::before{content:'✦';color:var(--gold);flex-shrink:0;}
+    .partner-card{background:var(--navy);color:#fff;border-radius:4px;padding:18px 20px;margin-bottom:14px;}
+    .partner-card .ptag{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:6px;font-weight:700;}
     .partner-card h4{font-family:'Merriweather',serif;font-size:1rem;color:#fff;margin-bottom:4px;}
-    .partner-card p{font-size:0.82rem;color:rgba(255,255,255,0.7);margin:0;}
-    footer{background:#1a3a6b;color:rgba(255,255,255,0.7);text-align:center;padding:18px 20px;font-size:0.82rem;}
+    .partner-card p{font-size:.82rem;color:rgba(255,255,255,.7);margin:0;}
+    .info-card{background:var(--light);border-left:4px solid var(--navy);border-radius:2px;padding:16px 18px;margin-bottom:14px;}
+    .info-card h4{font-family:'Merriweather',serif;font-size:.92rem;color:var(--navy);margin-bottom:6px;}
+    .info-card p{font-size:.86rem;color:#444;line-height:1.7;margin:0;}
+    footer{background:var(--navy);color:rgba(255,255,255,.7);text-align:center;padding:20px;font-size:.82rem;}
     footer a{color:#90cdf4;}
-    @media(max-width:860px){.two-col{grid-template-columns:1fr;}.hamburger{display:block;}nav ul{flex-direction:column;display:none;}nav ul.open{display:flex;}.nav-inner{flex-direction:column;align-items:flex-end;}.topbar{padding:8px 16px;}.topbar-title{font-size:1.1rem;}}
+    @media(max-width:860px){.two-col{grid-template-columns:1fr;}}
+    @media(max-width:680px){.hamburger{display:block;}nav ul{flex-direction:column;display:none;width:100%;}nav ul.open{display:flex;}nav ul li a{padding:12px 20px;border-top:1px solid rgba(255,255,255,.1);}nav ul.open~.nav-end{display:none;}.nav-inner{flex-wrap:wrap;padding:0;}.topbar{padding:8px 4%;}.topbar-title{font-size:1.05rem;}.img-row{grid-template-columns:1fr;}}
   </style>
 </head>
 <body>
-<div class="topbar">
-  <img src="pera.jpg" alt="University of Peradeniya Crest" class="uop-logo"/>
-  <div class="topbar-title">University of<br>Peradeniya</div>
-</div>
-<nav>
-  <div class="nav-inner">
-    <button class="hamburger" onclick="document.getElementById('nm').classList.toggle('open')"><span></span><span></span><span></span></button>
-    <ul id="nm">
-      <li><a href="index.html">HOME</a></li>
-      <li><a href="about.html" class="active">ABOUT US</a></li>
-      <li><a href="focus-areas.html">FOCUS AREAS</a></li>
-      <li><a href="history.html">HISTORY</a></li>
-      <li><a href="events.html">EVENTS</a></li>
-      <li><a href="gallery.html">GALLERY</a></li>
-      <li><a href="contact.html">CONTACT</a></li>
-    </ul>
-  </div>
-</nav>
+<div class="topbar"><img src="pera.jpg" alt="UoP Crest" class="logo"/><div class="topbar-title">University of<br>Peradeniya</div></div>
+<nav><div class="nav-inner">
+  <button class="hamburger" onclick="document.getElementById('nm').classList.toggle('open')"><span></span><span></span><span></span></button>
+  <ul id="nm">
+    <li><a href="index.html">HOME</a></li><li><a href="about.html" class="active">ABOUT US</a></li><li><a href="focus-areas.html">FOCUS AREAS</a></li><li><a href="history.html">HISTORY</a></li><li><a href="events.html">EVENTS</a></li><li><a href="gallery.html">GALLERY</a></li><li><a href="contact.html">CONTACT</a></li>
+  </ul>
+</div></nav>
 
+<img src="6.jpg" alt="About PISCC" class="banner-img"/>
 <div class="page-banner">
-  <div class="breadcrumb"><a href="index.html">Home</a> / About Us</div>
+  <div class="bc"><a href="index.html">Home</a> / About Us</div>
   <h1>About Us</h1>
   <p>The vision, mission, and institutional framework of the Peradeniya–Illinois–Sivananthan Collaboration Center.</p>
 </div>
@@ -77,24 +71,25 @@
 <div class="main-wrap">
   <div class="two-col">
     <div>
-      <div class="section-block">
-        <h2 class="section-title">Overview</h2>
-        <p class="body-text">The Peradeniya–Illinois–Sivananthan Collaboration Center is a proposed institutional mechanism designed to formalize, coordinate, and expand a long-standing and highly productive partnership between the University of Peradeniya (Sri Lanka), the University of Illinois System (USA), and Sivananthan Laboratories Inc. (USA). This initiative brings together years of academic cooperation, scientific exchange, and capacity building into a structured framework that supports long-term sustainability, strategic growth, and global impact.
-</p>
-        <p class="body-text">The collaboration itself is not new; rather, it is the continuation and consolidation of relationships that date back more than fifty years. What began in the 1970s as agricultural development cooperation and early medical education support has gradually evolved into a wide-ranging, multidisciplinary partnership. Over time, this relationship has expanded to include agricultural innovation, medical education reform, veterinary science, renewable energy research, and advanced technology development. The Center is intended to ensure that these activities are no longer dependent on informal coordination, but instead operate through a coherent institutional structure that enhances efficiency, accountability, and scalability.</p>
-       
+      <div class="sb">
+        <h2 class="sec">Overview</h2>
+        <p class="bt">The Peradeniya–Illinois–Sivananthan Collaboration Center (PISCC) is a proposed institutional mechanism designed to formalize, coordinate, and expand a long-standing and highly productive partnership between the University of Peradeniya (Sri Lanka), the University of Illinois System (USA), and Sivananthan Laboratories Inc. (USA).</p>
+        <p class="bt">This initiative brings together years of academic cooperation, scientific exchange, and capacity building into a structured framework that supports long-term sustainability, strategic growth, and global impact.</p>
+        <p class="bt">The collaboration itself is not new — it is the continuation and consolidation of relationships that date back more than fifty years. What began in the 1970s as agricultural development cooperation and early medical education support has gradually evolved into a wide-ranging, multidisciplinary partnership covering agricultural innovation, medical education reform, veterinary science, renewable energy research, and advanced technology development.</p>
+        <div class="img-row">
+          <img src="7.jpg" alt="Partnership"/>
+          <img src="20.jpg" alt="Collaboration"/>
+        </div>
       </div>
 
-      <div class="section-block">
-        <h2 class="section-title">Why a Formal Center?</h2>
-        <p class="body-text">Despite the success of these initiatives, coordination has largely depended on informal arrangements and individual leadership. While this has enabled flexibility and rapid engagement, it is not sufficient for long-term sustainability or systematic expansion.</p>
-        <p class="body-text">As the scope of collaboration continues to grow across multiple disciplines and institutions, there is a clear need for a formal institutional mechanism. The proposed Center addresses this need by providing a structured platform for coordination, governance, and strategic planning.</p>
-        <p class="body-text">It will bring together all stakeholders under a unified framework, ensuring that projects are properly managed, resources are efficiently utilized, and outcomes are systematically monitored. It will also strengthen transparency, accountability, and institutional continuity — allowing the collaboration to move beyond ad-hoc engagement toward a more sustainable and scalable model.</p>
-
-        <h3 class="sub-title">Center Goals</h3>
+      <div class="sb">
+        <h2 class="sec">Why a Formal Center?</h2>
+        <p class="bt">Despite the success of these initiatives, coordination has largely depended on informal arrangements and individual leadership. While this has enabled flexibility and rapid engagement, it is not sufficient for long-term sustainability or systematic expansion.</p>
+        <p class="bt">The proposed Center addresses this need by providing a structured platform for coordination, governance, and strategic planning. It will bring together all stakeholders under a unified framework, ensuring that projects are properly managed, resources efficiently utilized, and outcomes systematically monitored.</p>
+        <h3 class="sub">Center Goals</h3>
         <ul class="goal-list">
           <li>Establish a formal governance structure for all collaborative activities</li>
-          <li>Ensure long-term sustainability of the partnership beyond individual leadership</li>
+          <li>Ensure long-term sustainability beyond individual leadership</li>
           <li>Enable strategic growth and scalability across new disciplines</li>
           <li>Strengthen transparency, accountability, and institutional continuity</li>
           <li>Position PISCC as a globally relevant model for university-industry collaboration</li>
@@ -102,44 +97,25 @@
         </ul>
       </div>
 
-      <div class="section-block">
-        <h2 class="section-title">Vision Forward</h2>
-        <p class="body-text">The Peradeniya–Illinois–Sivananthan Collaboration Center represents the evolution of a long-standing partnership into a modern, structured, and globally relevant institution. It reflects a shared commitment to advancing knowledge, fostering innovation, and addressing complex global challenges through interdisciplinary collaboration.</p>
-        <p class="body-text">By consolidating decades of experience and expanding into new areas of research and development, the Center aims to position itself as a leading example of how universities and industry partners can work together across borders to generate meaningful and lasting impact in education, science, and society.</p>
+      <div class="sb">
+        <h2 class="sec">Vision Forward</h2>
+        <p class="bt">The Center represents the evolution of a long-standing partnership into a modern, structured, and globally relevant institution. It reflects a shared commitment to advancing knowledge, fostering innovation, and addressing complex global challenges through interdisciplinary collaboration.</p>
+        <p class="bt">By consolidating decades of experience and expanding into new areas of research and development, the Center aims to position itself as a leading example of how universities and industry partners can work together across borders to generate meaningful and lasting impact.</p>
+        <img src="21.jpg" alt="Vision" style="width:100%;height:200px;object-fit:cover;border-radius:3px;margin-top:16px;"/>
       </div>
     </div>
 
-    <div class="partner-sidebar">
-      <div class="partner-card">
-        <div class="ptag">Partner Institution — Sri Lanka</div>
-        <h4>University of Peradeniya</h4>
-        <p>Leading national university, host institution of the PISCC.</p>
-      </div>
-      <div class="partner-card">
-        <div class="ptag">Partner Institution — USA</div>
-        <h4>University of Illinois System</h4>
-        <p>Including UIC (Medical Education) and the Soybean Innovation Lab.</p>
-      </div>
-      <div class="partner-card">
-        <div class="ptag">Industry Partner — USA</div>
-        <h4>Sivananthan Laboratories Inc.</h4>
-        <p>Led by distinguished UoP alumnus Dr. Sivalingam Sivananthan.</p>
-      </div>
-      <div class="info-card">
-        <h4>Partnership Since</h4>
-        <p>The collaboration traces its roots to the early <strong>1970s</strong> — over 50 years of academic and research cooperation between Sri Lanka and the United States.</p>
-      </div>
-      <div class="info-card">
-        <h4>Disciplines Covered</h4>
-        <p>Agriculture · Medical Education · Veterinary Science · Renewable Energy · Technology Innovation</p>
-      </div>
+    <div>
+      <div class="partner-card"><div class="ptag">Partner Institution — Sri Lanka</div><h4>University of Peradeniya</h4><p>Leading national university and host institution of the PISCC.</p></div>
+      <div class="partner-card"><div class="ptag">Partner Institution — USA</div><h4>University of Illinois System</h4><p>Including UIC (Medical Education) and the Soybean Innovation Lab.</p></div>
+      <div class="partner-card"><div class="ptag">Industry Partner — USA</div><h4>Sivananthan Laboratories Inc.</h4><p>Led by distinguished UoP alumnus Dr. Sivalingam Sivananthan.</p></div>
+      <div class="info-card"><h4>Partnership Since</h4><p>The collaboration traces its roots to the early <strong>1970s</strong> — over 50 years of academic and research cooperation.</p></div>
+      <div class="info-card"><h4>Disciplines Covered</h4><p>Agriculture · Medical Education · Veterinary Science · Renewable Energy · Technology Innovation</p></div>
+      <img src="22.jpg" alt="Partners" style="width:100%;height:160px;object-fit:cover;border-radius:3px;margin-top:4px;"/>
     </div>
   </div>
 </div>
 
-<footer>
-  <p>© <span id="yr"></span> Peradeniya–Illinois–Sivananthan Collaboration Center &nbsp;|&nbsp; University of Peradeniya, Sri Lanka &nbsp;|&nbsp; <a href="contact.html">Contact Us</a></p>
-</footer>
+<footer><p>© <span id="yr"></span> Peradeniya–Illinois–Sivananthan Collaboration Center &nbsp;|&nbsp; University of Peradeniya, Sri Lanka &nbsp;|&nbsp; <a href="contact.html">Contact Us</a></p></footer>
 <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
-</body>
-</html>
+</body></html>
