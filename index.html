@@ -9,332 +9,103 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Open Sans', sans-serif; color: #222; background: #fff; }
     a { text-decoration: none; color: inherit; }
-
-    /* ── TOP BAR ── */
-    .topbar {
-      background: #1a3a6b;
-      color: white;
-      display: flex;
-      align-items: center;
-      padding: 10px 30px;
-      gap: 16px;
-    }
-    .topbar img.uop-logo {
-      width: 64px; height: 64px;
-      object-fit: contain;
-      flex-shrink: 0;
-    }
-    /* SVG crest placeholder */
-    .uop-crest {
-      width: 64px; height: 64px; flex-shrink: 0;
-    }
-    .topbar-title {
-      font-family: 'Merriweather', serif;
-      font-size: 1.35rem;
-      font-weight: 900;
-      line-height: 1.2;
-      color: #fff;
-    }
-
-    /* ── NAV ── */
-    nav {
-      background: #1a3a6b;
-      border-top: 1px solid rgba(255,255,255,0.15);
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    nav ul li a {
-      display: block;
-      padding: 13px 22px;
-      color: rgba(255,255,255,0.88);
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      transition: background 0.2s, color 0.2s;
-    }
-    nav ul li a:hover,
-    nav ul li a.active {
-      background: rgba(255,255,255,0.15);
-      color: #fff;
-    }
-
-    /* ── HERO BANNER ── */
-    .hero {
-      position: relative;
-      height: 320px;
-      overflow: hidden;
-      background: #1a3a6b;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    /* Flag-style layered background */
-    .hero-bg {
-      position: absolute; inset: 0;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
-    .hero-bg-left {
-      background: linear-gradient(160deg, #8b1a1a 0%, #c0392b 40%, #e8b84b 100%);
-      opacity: 0.85;
-    }
-    .hero-bg-right {
-      background: linear-gradient(200deg, #e67e22 0%, #c0392b 50%, #8b1a1a 100%);
-      opacity: 0.85;
-    }
-    .hero-overlay {
-      position: absolute; inset: 0;
-      background: rgba(10, 25, 55, 0.55);
-    }
-    .hero-content {
-      position: relative;
-      text-align: center;
-      color: white;
-      padding: 0 20px;
-    }
-    .hero-content h1 {
-      font-family: 'Merriweather', serif;
-      font-size: clamp(1.6rem, 4vw, 2.8rem);
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      line-height: 1.2;
-      text-shadow: 2px 3px 12px rgba(0,0,0,0.6);
-    }
-
-    /* ── MAIN CONTENT AREA ── */
-    .main-wrap {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 36px 24px 48px;
-    }
-
-    /* ── WELCOME + SIDEBAR GRID ── */
-    .content-grid {
-      display: grid;
-      grid-template-columns: 1fr 320px;
-      gap: 30px;
-      align-items: start;
-    }
-
-    /* Left column */
-    .welcome-col h2 {
-      font-family: 'Merriweather', serif;
-      font-size: 1.45rem;
-      color: #1a3a6b;
-      margin-bottom: 20px;
-      font-weight: 700;
-    }
-    .welcome-img {
-      width: 100%;
-      height: 280px;
-      object-fit: cover;
-      border-radius: 4px;
-      margin-bottom: 20px;
-      background: linear-gradient(135deg, #2c5282, #1a3a6b);
-      display: flex; align-items: center; justify-content: center;
-      color: rgba(255,255,255,0.4);
-      font-size: 0.85rem;
-      letter-spacing: 0.05em;
-    }
-    /* UoP building SVG placeholder */
-    .building-placeholder {
-      width: 100%; height: 280px; border-radius: 4px; margin-bottom: 20px;
-      background: linear-gradient(160deg, #2a4a7f 0%, #1a3a6b 60%, #0f2347 100%);
-      display: flex; align-items: center; justify-content: center;
-      overflow: hidden; position: relative;
-    }
-    .building-placeholder svg { width: 100%; height: 100%; }
-
-    .welcome-text p {
-      font-size: 0.96rem;
-      line-height: 1.75;
-      color: #333;
-      margin-bottom: 14px;
-    }
-
-    /* ── SIDEBAR ── */
-    .sidebar {}
-    .event-box {
-      background: #1a3a6b;
-      color: white;
-      padding: 20px;
-      border-radius: 2px;
-    }
-    .event-box h3 {
-      font-family: 'Merriweather', serif;
-      font-size: 1.2rem;
-      font-weight: 900;
-      text-align: center;
-      text-decoration: underline;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-      letter-spacing: 0.04em;
-    }
-    .event-item {
-      margin-bottom: 20px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid rgba(255,255,255,0.15);
-    }
-    .event-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-    .event-item h4 {
-      font-size: 0.88rem;
-      font-weight: 700;
-      margin-bottom: 6px;
-      color: #f0d080;
-    }
-    .event-item p {
-      font-size: 0.82rem;
-      line-height: 1.5;
-      color: rgba(255,255,255,0.85);
-      margin-bottom: 10px;
-    }
-    .event-flyer {
-      width: 100%;
-      border-radius: 3px;
-      background: linear-gradient(135deg, #2c5282, #1e3a5f);
-      padding: 16px;
-      text-align: center;
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.7);
-      border: 1px solid rgba(255,255,255,0.2);
-    }
-    .event-flyer strong {
-      display: block;
-      font-size: 0.9rem;
-      color: #f0d080;
-      margin-bottom: 6px;
-      font-family: 'Merriweather', serif;
-    }
-    .event-flyer .date { color: #90cdf4; font-size: 0.75rem; margin-top: 6px; }
-    .event-link {
-      display: inline-block;
-      margin-top: 10px;
-      font-size: 0.8rem;
-      color: #90cdf4;
-      text-decoration: underline;
-    }
-
-    /* ── PARTNER SECTION ── */
-    .partners-strip {
-      background: #f5f7fa;
-      border-top: 3px solid #1a3a6b;
-      padding: 28px 24px;
-      margin-top: 40px;
-    }
-    .partners-strip h3 {
-      text-align: center;
-      font-family: 'Merriweather', serif;
-      font-size: 1rem;
-      color: #1a3a6b;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-    .partner-logos {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 48px;
-      flex-wrap: wrap;
-    }
-    .partner-logo-item {
-      text-align: center;
-    }
-    .partner-logo-circle {
-      width: 72px; height: 72px;
-      border-radius: 50%;
-      background: #1a3a6b;
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 8px;
-      color: #f0d080;
-      font-family: 'Merriweather', serif;
-      font-size: 1.1rem;
-      font-weight: 900;
-    }
-    .partner-logo-item span {
-      font-size: 0.78rem;
-      color: #1a3a6b;
-      font-weight: 700;
-      display: block;
-      max-width: 120px;
-      text-align: center;
-      line-height: 1.3;
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      background: #1a3a6b;
-      color: rgba(255,255,255,0.7);
-      text-align: center;
-      padding: 18px;
-      font-size: 0.82rem;
-    }
-    footer a { color: #90cdf4; }
-
-    /* ── MOBILE ── */
-    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px 16px; }
+    .topbar { background: #1a3a6b; color: white; display: flex; align-items: center; padding: 8px 30px; gap: 14px; }
+    .topbar img.uop-logo { width: 68px; height: 68px; object-fit: contain; flex-shrink: 0; }
+    .topbar-title { font-family: 'Merriweather', serif; font-size: 1.4rem; font-weight: 900; line-height: 1.25; color: #fff; }
+    nav { background: #1a3a6b; border-top: 1px solid rgba(255,255,255,0.18); }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+    nav ul { list-style: none; display: flex; flex-wrap: wrap; }
+    nav ul li a { display: block; padding: 13px 20px; color: rgba(255,255,255,0.88); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; transition: background 0.2s, color 0.2s; }
+    nav ul li a:hover, nav ul li a.active { background: rgba(255,255,255,0.15); color: #fff; }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 10px 16px; }
     .hamburger span { display: block; width: 22px; height: 2px; background: white; margin: 5px 0; }
+    .hero { position: relative; height: 300px; overflow: hidden; background: #0f2347; }
+    .hero-img { width: 100%; height: 100%; object-fit: cover; opacity: 0.45; display: block; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(10,30,70,0.75) 0%, rgba(10,30,70,0.45) 50%, rgba(10,30,70,0.75) 100%); }
+    .hero-content { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 20px; }
+    .hero-content h1 { font-family: 'Merriweather', serif; font-size: clamp(1.5rem, 3.5vw, 2.6rem); font-weight: 900; text-transform: uppercase; letter-spacing: 0.04em; line-height: 1.25; color: #fff; text-shadow: 2px 3px 14px rgba(0,0,0,0.7); }
+    .hero-content h1 span { display: block; font-size: 0.55em; font-weight: 400; letter-spacing: 0.12em; color: #f0d080; margin-bottom: 10px; }
+    .main-wrap { max-width: 1100px; margin: 0 auto; padding: 36px 24px 48px; }
+    .content-grid { display: grid; grid-template-columns: 1fr 310px; gap: 32px; align-items: start; }
+    .welcome-col h2 { font-family: 'Merriweather', serif; font-size: 1.35rem; color: #1a3a6b; margin-bottom: 20px; font-weight: 700; }
+    .campus-img { width: 100%; height: 270px; object-fit: cover; border-radius: 3px; margin-bottom: 20px; display: block; }
+    .welcome-text p { font-size: 0.95rem; line-height: 1.8; color: #333; margin-bottom: 14px; }
+    .welcome-text strong { color: #1a3a6b; }
+    .read-more { display: inline-block; margin-top: 6px; background: #1a3a6b; color: white; padding: 9px 22px; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; border-radius: 2px; transition: background 0.2s; }
+    .read-more:hover { background: #243d62; }
+    .event-box { background: #1a3a6b; color: white; padding: 20px; border-radius: 2px; }
+    .event-box h3 { font-family: 'Merriweather', serif; font-size: 1.15rem; font-weight: 900; text-align: center; text-decoration: underline; text-transform: uppercase; margin-bottom: 18px; letter-spacing: 0.04em; color: #f0d080; }
+    .event-item { margin-bottom: 22px; padding-bottom: 22px; border-bottom: 1px solid rgba(255,255,255,0.15); }
+    .event-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .event-item h4 { font-size: 0.88rem; font-weight: 700; margin-bottom: 6px; color: #f0d080; }
+    .event-item p { font-size: 0.82rem; line-height: 1.55; color: rgba(255,255,255,0.85); margin-bottom: 10px; }
+    .event-flyer-img { width: 100%; border-radius: 3px; display: block; border: 1px solid rgba(255,255,255,0.2); }
+    .event-flyer-card { width: 100%; background: linear-gradient(135deg, #2c5282, #1e3a5f); padding: 14px; border-radius: 3px; font-size: 0.78rem; color: rgba(255,255,255,0.75); border: 1px solid rgba(255,255,255,0.2); }
+    .event-flyer-card strong { display: block; font-size: 0.88rem; color: #f0d080; margin-bottom: 5px; font-family: 'Merriweather', serif; }
+    .event-flyer-card .edate { color: #90cdf4; font-size: 0.75rem; margin-top: 5px; }
+    .event-link { display: inline-block; margin-top: 9px; font-size: 0.8rem; color: #90cdf4; text-decoration: underline; }
+    .stats-strip { display: grid; grid-template-columns: repeat(4, 1fr); background: #f0f4fa; border-top: 4px solid #1a3a6b; border-bottom: 4px solid #1a3a6b; margin-top: 40px; }
+    .stat-item { text-align: center; padding: 24px 12px; border-right: 1px solid #d0d8e8; }
+    .stat-item:last-child { border-right: none; }
+    .stat-num { font-family: 'Merriweather', serif; font-size: 2.2rem; font-weight: 900; color: #1a3a6b; }
+    .stat-lbl { font-size: 0.78rem; color: #555; margin-top: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+    .partners-strip { background: #fff; border-top: 2px solid #e0e8f0; padding: 28px 24px; }
+    .partners-strip h3 { text-align: center; font-family: 'Merriweather', serif; font-size: 0.95rem; color: #1a3a6b; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .partner-logos { display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap; max-width: 900px; margin: 0 auto; }
+    .partner-item { text-align: center; }
+    .partner-badge { width: 70px; height: 70px; border-radius: 50%; background: #1a3a6b; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px; color: #f0d080; font-family: 'Merriweather', serif; font-size: 1rem; font-weight: 900; border: 3px solid #f0d080; }
+    .partner-item span { font-size: 0.75rem; color: #1a3a6b; font-weight: 700; display: block; max-width: 110px; line-height: 1.3; margin-top: 6px; }
+    footer { background: #1a3a6b; color: rgba(255,255,255,0.7); text-align: center; padding: 18px 20px; font-size: 0.82rem; }
+    footer a { color: #90cdf4; }
     @media (max-width: 860px) {
       .content-grid { grid-template-columns: 1fr; }
-      .topbar-title { font-size: 1.1rem; }
-      .hero { height: 220px; }
+      .stats-strip { grid-template-columns: repeat(2, 1fr); }
+      .hamburger { display: block; }
       nav ul { flex-direction: column; display: none; }
       nav ul.open { display: flex; }
-      .hamburger { display: block; }
-      nav { display: flex; flex-direction: column; align-items: flex-end; }
+      .nav-inner { flex-direction: column; align-items: flex-end; }
+      .hero { height: 220px; }
+      .topbar-title { font-size: 1.1rem; }
+      .topbar { padding: 8px 16px; }
     }
   </style>
 </head>
 <body>
 
-<!-- TOP BAR with UoP Logo -->
+<!-- TOP BAR -->
 <div class="topbar">
-  <!-- UoP Crest SVG -->
-  <svg class="uop-crest" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="32" cy="32" r="30" fill="#f0d080" stroke="#fff" stroke-width="1.5"/>
-    <circle cx="32" cy="32" r="26" fill="none" stroke="#1a3a6b" stroke-width="1.5"/>
-    <text x="32" y="28" text-anchor="middle" font-family="serif" font-size="9" font-weight="bold" fill="#1a3a6b">UNIVERSITY</text>
-    <text x="32" y="38" text-anchor="middle" font-family="serif" font-size="9" font-weight="bold" fill="#1a3a6b">OF</text>
-    <text x="32" y="48" text-anchor="middle" font-family="serif" font-size="7.5" font-weight="bold" fill="#1a3a6b">PERADENIYA</text>
-    <path d="M20 22 Q32 12 44 22" fill="none" stroke="#1a3a6b" stroke-width="1.5"/>
-  </svg>
+  <img src="pera.jpg" alt="University of Peradeniya Crest" class="uop-logo" />
   <div class="topbar-title">University of<br>Peradeniya</div>
 </div>
 
 <!-- NAVIGATION -->
 <nav>
-  <button class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-  <ul>
-    <li><a href="index.html" class="active">HOME</a></li>
-    <li><a href="about.html">ABOUT US</a></li>
-    <li><a href="focus-areas.html">FOCUS AREAS</a></li>
-    <li><a href="history.html">HISTORY</a></li>
-    <li><a href="news.html">EVENTS</a></li>
-    <li><a href="#gallery">GALLERY</a></li>
-    <li><a href="contact.html">CONTACT</a></li>
-  </ul>
+  <div class="nav-inner">
+    <button class="hamburger" aria-label="Toggle menu"
+      onclick="document.getElementById('navmenu').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul id="navmenu">
+      <li><a href="index.html" class="active">HOME</a></li>
+      <li><a href="about.html">ABOUT US</a></li>
+      <li><a href="focus-areas.html">FOCUS AREAS</a></li>
+      <li><a href="history.html">HISTORY</a></li>
+      <li><a href="news.html">EVENTS</a></li>
+      <li><a href="#gallery">GALLERY</a></li>
+      <li><a href="contact.html">CONTACT</a></li>
+    </ul>
+  </div>
 </nav>
 
 <!-- HERO BANNER -->
 <div class="hero">
-  <div class="hero-bg">
-    <div class="hero-bg-left"></div>
-    <div class="hero-bg-right"></div>
-  </div>
+  <img src="39.png" alt="University of Peradeniya Campus" class="hero-img" />
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <h1>Peradeniya – Illinois –<br>Sivananthan<br>Collaboration Center</h1>
+    <h1>
+      <span>University of Peradeniya</span>
+      Peradeniya – Illinois –<br>Sivananthan<br>Collaboration Center
+    </h1>
   </div>
 </div>
 
@@ -345,95 +116,46 @@
     <!-- LEFT: Welcome -->
     <div class="welcome-col">
       <h2>Welcome to the Peradeniya – Illinois – Sivananthan Collaboration Center</h2>
-
-      <!-- University building image placeholder -->
-      <div class="building-placeholder">
-        <svg viewBox="0 0 600 280" xmlns="http://www.w3.org/2000/svg">
-          <!-- Sky -->
-          <rect width="600" height="280" fill="#1a3a6b"/>
-          <rect width="600" height="280" fill="url(#sky)"/>
-          <defs>
-            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#87ceeb" stop-opacity="0.3"/>
-              <stop offset="100%" stop-color="#1a3a6b" stop-opacity="0"/>
-            </linearGradient>
-          </defs>
-          <!-- Ground -->
-          <rect y="220" width="600" height="60" fill="#2d5a27" opacity="0.5"/>
-          <!-- Main building body -->
-          <rect x="150" y="110" width="300" height="130" fill="#c8a96e" opacity="0.85"/>
-          <!-- Roof -->
-          <polygon points="120,110 300,50 480,110" fill="#8b4513" opacity="0.9"/>
-          <!-- Central dome -->
-          <ellipse cx="300" cy="70" rx="35" ry="25" fill="#a0522d" opacity="0.9"/>
-          <!-- Windows row -->
-          <rect x="175" y="140" width="30" height="40" fill="#2c5282" opacity="0.8"/>
-          <rect x="225" y="140" width="30" height="40" fill="#2c5282" opacity="0.8"/>
-          <rect x="275" y="140" width="30" height="40" fill="#2c5282" opacity="0.8"/>
-          <rect x="325" y="140" width="30" height="40" fill="#2c5282" opacity="0.8"/>
-          <rect x="375" y="140" width="30" height="40" fill="#2c5282" opacity="0.8"/>
-          <!-- Door -->
-          <rect x="270" y="195" width="60" height="45" fill="#2c5282" opacity="0.9"/>
-          <!-- Pillars -->
-          <rect x="195" y="115" width="10" height="105" fill="#b8954e" opacity="0.7"/>
-          <rect x="250" y="115" width="10" height="105" fill="#b8954e" opacity="0.7"/>
-          <rect x="340" y="115" width="10" height="105" fill="#b8954e" opacity="0.7"/>
-          <rect x="395" y="115" width="10" height="105" fill="#b8954e" opacity="0.7"/>
-          <!-- Trees -->
-          <circle cx="90" cy="185" r="35" fill="#2d5a27" opacity="0.8"/>
-          <rect x="86" y="210" width="8" height="30" fill="#5d4037" opacity="0.8"/>
-          <circle cx="510" cy="185" r="35" fill="#2d5a27" opacity="0.8"/>
-          <rect x="506" y="210" width="8" height="30" fill="#5d4037" opacity="0.8"/>
-          <!-- Caption -->
-          <text x="300" y="265" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="rgba(255,255,255,0.6)">University of Peradeniya</text>
-        </svg>
-      </div>
-
+      <img src="39.png" alt="University of Peradeniya Campus" class="campus-img" />
       <div class="welcome-text">
         <p>The <strong>Peradeniya–Illinois–Sivananthan Collaboration Center (PISCC)</strong> is a proposed institutional mechanism designed to formalize, coordinate, and expand a long-standing and highly productive partnership between the University of Peradeniya (Sri Lanka), the University of Illinois System (USA), and Sivananthan Laboratories Inc. (USA).</p>
-        <p>This initiative brings together years of academic cooperation, scientific exchange, and capacity building into a structured framework that supports long-term sustainability, strategic growth, and global impact.</p>
-        <p>The collaboration itself is not new — it is the continuation and consolidation of relationships that date back more than <strong>fifty years</strong>. What began in the 1970s as agricultural development cooperation and early medical education support has gradually evolved into a wide-ranging, multidisciplinary partnership covering agricultural innovation, medical education reform, veterinary science, renewable energy research, and advanced technology development.</p>
-        <p>The Center is intended to ensure that these activities are no longer dependent on informal coordination, but instead operate through a coherent institutional structure that enhances efficiency, accountability, and scalability.</p>
+        <p>This initiative brings together years of academic cooperation, scientific exchange, and capacity building into a structured framework that supports long-term sustainability, strategic growth, and global impact. The collaboration dates back more than <strong>fifty years</strong>, beginning in the 1970s with agricultural development cooperation and early medical education support.</p>
+        <p>Over time, this relationship has expanded to include agricultural innovation, medical education reform, veterinary science, renewable energy research, and advanced technology development. The Center ensures these activities operate through a coherent institutional structure that enhances efficiency, accountability, and scalability.</p>
+        <a href="about.html" class="read-more">Read More →</a>
       </div>
     </div>
 
-    <!-- RIGHT: Upcoming Events Sidebar -->
+    <!-- RIGHT: Sidebar -->
     <div class="sidebar">
       <div class="event-box">
-        <h3>Upcoming Events</h3>
+        <h3>Upcoming Event</h3>
 
         <div class="event-item">
-          <h4>Soybean Innovation Partnership</h4>
-          <p>University of Illinois Soybean Innovation Lab &amp; Department of Agriculture Sri Lanka — Field trial evaluation of high-yield varieties.</p>
-          <div class="event-flyer">
-            <strong>Soybean Field Trials 2025</strong>
-            Sri Lanka Agroecological Zone Evaluation<br>
-            Joint program with UI Soybean Innovation Lab
-            <div class="date">Ongoing — 2025</div>
-          </div>
-          <a href="news.html" class="event-link">Read more →</a>
+          <h4>Golden Jubilee Celebration — 50th Anniversary</h4>
+          <p>Celebrating Collaborative Partnerships among the University of Peradeniya, the University of Illinois System, and Sivananthan Laboratories Inc., USA — in conjunction with the Golden Jubilee of the 1976 Batch.</p>
+          <img src="39.png" alt="Golden Jubilee Event Flyer" class="event-flyer-img" />
+          <a href="https://learn.zoom.us/j/94268528901?pwd=GCMclyGcoecYrrRnSLRzyFBs4alPkn.1"
+             target="_blank" class="event-link">Join via Zoom →</a>
         </div>
 
         <div class="event-item">
           <h4>Solar Technology Workshop</h4>
-          <p>Capacity-building program on thin-film solar technologies for Sri Lankan university students and technical personnel.</p>
-          <div class="event-flyer">
+          <p>Capacity-building on thin-film solar technologies with Sivananthan Laboratories Inc. across Sri Lankan universities.</p>
+          <div class="event-flyer-card">
             <strong>Solar Energy Training 2025</strong>
-            In collaboration with Sivananthan Laboratories Inc.<br>
             Multiple Sri Lankan Universities
-            <div class="date">2025 — Upcoming</div>
+            <div class="edate">2025 — Upcoming</div>
           </div>
           <a href="news.html" class="event-link">Read more →</a>
         </div>
 
         <div class="event-item">
-          <h4>Medical Education Symposium</h4>
-          <p>Faculty development workshop on AI integration in medical education — University of Peradeniya &amp; UIC joint initiative.</p>
-          <div class="event-flyer">
-            <strong>AI in Medical Education</strong>
-            Faculty of Medicine, University of Peradeniya<br>
-            With University of Illinois Chicago
-            <div class="date">2025 — TBC</div>
+          <h4>Soybean Field Trials</h4>
+          <p>Joint evaluation of high-yield soybean varieties with the UI Soybean Innovation Lab &amp; Dept. of Agriculture.</p>
+          <div class="event-flyer-card">
+            <strong>Soybean Innovation 2025</strong>
+            Sri Lanka Agroecological Zone Trials
+            <div class="edate">Ongoing — 2025</div>
           </div>
           <a href="news.html" class="event-link">Read more →</a>
         </div>
@@ -441,27 +163,35 @@
       </div>
     </div>
 
-  </div><!-- end content-grid -->
-</div><!-- end main-wrap -->
+  </div>
+</div>
 
-<!-- PARTNER LOGOS STRIP -->
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stat-item"><div class="stat-num">50+</div><div class="stat-lbl">Years of Partnership</div></div>
+  <div class="stat-item"><div class="stat-num">3</div><div class="stat-lbl">Partner Institutions</div></div>
+  <div class="stat-item"><div class="stat-num">4+</div><div class="stat-lbl">Research Disciplines</div></div>
+  <div class="stat-item"><div class="stat-num">2</div><div class="stat-lbl">Countries</div></div>
+</div>
+
+<!-- PARTNERS -->
 <div class="partners-strip">
   <h3>Partner Institutions</h3>
   <div class="partner-logos">
-    <div class="partner-logo-item">
-      <div class="partner-logo-circle">UoP</div>
+    <div class="partner-item">
+      <img src="pera.jpg" alt="University of Peradeniya" style="width:70px;height:70px;border-radius:50%;object-fit:cover;border:3px solid #1a3a6b;display:block;margin:0 auto;" />
       <span>University of Peradeniya</span>
     </div>
-    <div class="partner-logo-item">
-      <div class="partner-logo-circle">UI</div>
+    <div class="partner-item">
+      <div class="partner-badge">UI</div>
       <span>University of Illinois System</span>
     </div>
-    <div class="partner-logo-item">
-      <div class="partner-logo-circle">SL</div>
+    <div class="partner-item">
+      <div class="partner-badge" style="font-size:0.75rem;">SL<br>Labs</div>
       <span>Sivananthan Laboratories Inc.</span>
     </div>
-    <div class="partner-logo-item">
-      <div class="partner-logo-circle" style="font-size:0.75rem;">UIC</div>
+    <div class="partner-item">
+      <div class="partner-badge" style="font-size:0.82rem;">UIC</div>
       <span>University of Illinois Chicago</span>
     </div>
   </div>
