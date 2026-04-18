@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Focus Areas | PISCC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Open Sans',sans-serif;color:#222;background:#fff;}
+    a{text-decoration:none;color:inherit;}
+    .topbar{background:#1a3a6b;color:white;display:flex;align-items:center;padding:8px 30px;gap:14px;}
+    .topbar img.uop-logo{width:68px;height:68px;object-fit:contain;flex-shrink:0;mix-blend-mode:screen;filter:brightness(1.1) contrast(1.1);}
+    .topbar-title{font-family:'Merriweather',serif;font-size:1.4rem;font-weight:900;line-height:1.25;color:#fff;}
+    nav{background:#1a3a6b;border-top:1px solid rgba(255,255,255,0.18);}
+    .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;}
+    nav ul{list-style:none;display:flex;flex-wrap:wrap;}
+    nav ul li a{display:block;padding:13px 20px;color:rgba(255,255,255,0.88);font-size:0.82rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;transition:background 0.2s,color 0.2s;}
+    nav ul li a:hover,nav ul li a.active{background:rgba(255,255,255,0.15);color:#fff;}
+    .hamburger{display:none;background:none;border:none;cursor:pointer;padding:10px 16px;}
+    .hamburger span{display:block;width:22px;height:2px;background:white;margin:5px 0;}
+    .page-banner{background:#1a3a6b;padding:48px 24px;text-align:center;}
+    .page-banner .breadcrumb{font-size:0.8rem;color:rgba(255,255,255,0.5);margin-bottom:10px;}
+    .page-banner .breadcrumb a{color:#90cdf4;}
+    .page-banner h1{font-family:'Merriweather',serif;font-size:clamp(1.4rem,3vw,2.2rem);font-weight:900;color:#f0d080;text-transform:uppercase;letter-spacing:0.04em;}
+    .page-banner p{color:rgba(255,255,255,0.75);margin-top:10px;font-size:0.95rem;max-width:700px;margin-left:auto;margin-right:auto;}
+    .main-wrap{max-width:1100px;margin:0 auto;padding:48px 24px 64px;}
+    .focus-tabs{display:flex;gap:0;border-bottom:3px solid #1a3a6b;margin-bottom:40px;flex-wrap:wrap;}
+    .focus-tab{padding:12px 22px;font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;cursor:pointer;color:#555;border-bottom:3px solid transparent;margin-bottom:-3px;transition:all 0.2s;}
+    .focus-tab:hover{color:#1a3a6b;}
+    .focus-tab.active{color:#1a3a6b;border-bottom-color:#f0d080;}
+    .focus-section{display:none;}
+    .focus-section.active{display:block;}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start;margin-bottom:32px;}
+    .icon-box{font-size:4rem;background:#f0f4fa;border-radius:4px;display:flex;align-items:center;justify-content:center;height:160px;}
+    h2.section-title{font-family:'Merriweather',serif;font-size:1.35rem;color:#1a3a6b;border-left:5px solid #f0d080;padding-left:14px;margin-bottom:18px;}
+    h3.sub-title{font-family:'Merriweather',serif;font-size:1.05rem;color:#1a3a6b;margin:24px 0 10px;}
+    p.body-text{font-size:0.96rem;line-height:1.85;color:#333;margin-bottom:14px;}
+    .activity-list{list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px;}
+    .activity-item{background:#f0f4fa;border-left:4px solid #1a3a6b;padding:14px 16px;border-radius:2px;font-size:0.88rem;color:#333;line-height:1.6;}
+    .activity-item strong{display:block;color:#1a3a6b;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:4px;}
+    footer{background:#1a3a6b;color:rgba(255,255,255,0.7);text-align:center;padding:18px 20px;font-size:0.82rem;}
+    footer a{color:#90cdf4;}
+    @media(max-width:860px){.two-col{grid-template-columns:1fr;}.activity-list{grid-template-columns:1fr;}.hamburger{display:block;}nav ul{flex-direction:column;display:none;}nav ul.open{display:flex;}.nav-inner{flex-direction:column;align-items:flex-end;}.topbar{padding:8px 16px;}.topbar-title{font-size:1.1rem;}}
+  </style>
+</head>
+<body>
+<div class="topbar">
+  <img src="pera.jpg" alt="University of Peradeniya Crest" class="uop-logo"/>
+  <div class="topbar-title">University of<br>Peradeniya</div>
+</div>
+<nav>
+  <div class="nav-inner">
+    <button class="hamburger" onclick="document.getElementById('nm').classList.toggle('open')"><span></span><span></span><span></span></button>
+    <ul id="nm">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="about.html">ABOUT US</a></li>
+      <li><a href="focus-areas.html" class="active">FOCUS AREAS</a></li>
+      <li><a href="history.html">HISTORY</a></li>
+      <li><a href="events.html">EVENTS</a></li>
+      <li><a href="gallery.html">GALLERY</a></li>
+      <li><a href="contact.html">CONTACT</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-banner">
+  <div class="breadcrumb"><a href="index.html">Home</a> / Focus Areas</div>
+  <h1>Focus Areas</h1>
+  <p>Four interdisciplinary pillars driving research, innovation, and capacity development across Sri Lanka and the United States.</p>
+</div>
+
+<div class="main-wrap">
+  <div class="focus-tabs">
+    <div class="focus-tab active" onclick="showTab('agri',this)">🌾 Agriculture</div>
+    <div class="focus-tab" onclick="showTab('med',this)">🏥 Medical Sciences</div>
+    <div class="focus-tab" onclick="showTab('vet',this)">🐾 Veterinary &amp; One Health</div>
+    <div class="focus-tab" onclick="showTab('energy',this)">☀️ Renewable Energy</div>
+  </div>
+
+  <!-- AGRICULTURE -->
+  <div class="focus-section active" id="agri">
+    <div class="two-col">
+      <div>
+        <h2 class="section-title">Agriculture, Food Security &amp; Innovation</h2>
+        <p class="body-text">Agricultural collaboration remains one of the foundational pillars of this partnership. Despite early success in introducing soybean cultivation, challenges such as low yields and limited processing infrastructure prevented widespread adoption in Sri Lanka. The renewed collaboration seeks to address these issues through scientific and technological innovation.</p>
+        <p class="body-text">Through joint efforts with the University of Illinois and its globally recognized soybean research programs, new high-yield soybean varieties have been introduced and are currently undergoing evaluation under Sri Lankan agroecological conditions.</p>
+        <p class="body-text">Modern agricultural technologies, including SMART FARM systems, are being explored to improve productivity, sustainability, and resilience. A further dimension involves the utilization of locally produced soybean products as sustainable alternatives for animal feed, particularly in the poultry sector — with implications for both cost reduction and import substitution.</p>
+      </div>
+      <div class="icon-box">🌾</div>
+    </div>
+    <h3 class="sub-title">Key Activities</h3>
+    <ul class="activity-list">
+      <li class="activity-item"><strong>Soybean Varieties</strong>High-yield variety evaluation under Sri Lankan agroecological conditions</li>
+      <li class="activity-item"><strong>SMART FARM</strong>Modern agricultural technology integration and demonstration</li>
+      <li class="activity-item"><strong>Poultry Feed</strong>Soybean-based sustainable animal feed development</li>
+      <li class="activity-item"><strong>Innovation Lab</strong>Partnership with UI Soybean Innovation Lab &amp; Dept. of Agriculture</li>
+    </ul>
+  </div>
+
+  <!-- MEDICAL -->
+  <div class="focus-section" id="med">
+    <div class="two-col">
+      <div>
+        <h2 class="section-title">Medical Education &amp; Health Systems Development</h2>
+        <p class="body-text">The collaboration in medical education represents one of the most historically significant aspects of this partnership. The influence of UIC in shaping Sri Lanka's medical education system is well established, particularly through the training of pioneering academics who transformed teaching and curriculum development at the University of Peradeniya.</p>
+        <p class="body-text">Modern developments include the integration of artificial intelligence into medical education, as well as renewed emphasis on educational research, curriculum innovation, and faculty development. These efforts are complemented by extensive clinical research collaborations that aim to improve patient care through evidence-based approaches.</p>
+        <p class="body-text">The comparative nature of this collaboration — linking Sri Lanka's high-volume clinical environment with the diverse patient population of UIC — provides unique opportunities for developing more robust and globally relevant healthcare models.</p>
+      </div>
+      <div class="icon-box">🏥</div>
+    </div>
+    <h3 class="sub-title">Research Areas</h3>
+    <ul class="activity-list">
+      <li class="activity-item"><strong>CKDu Research</strong>Chronic kidney disease of unknown etiology — joint clinical investigation</li>
+      <li class="activity-item"><strong>Neurology &amp; Mental Health</strong>Neurological disorders and mental health challenges among youth</li>
+      <li class="activity-item"><strong>AI in Medicine</strong>Artificial intelligence integration in medical education &amp; curriculum</li>
+      <li class="activity-item"><strong>Surgical Innovation</strong>Robotic surgery and advanced surgical technique development</li>
+      <li class="activity-item"><strong>Immunology</strong>Immunology, infectious diseases, and rehabilitation medicine</li>
+      <li class="activity-item"><strong>Faculty Exchange</strong>Academic exchange, workshops, and research training initiatives</li>
+    </ul>
+  </div>
+
+  <!-- VETERINARY -->
+  <div class="focus-section" id="vet">
+    <div class="two-col">
+      <div>
+        <h2 class="section-title">Veterinary Science &amp; the One Health Framework</h2>
+        <p class="body-text">Veterinary medical education and research form another critical component of this collaboration, particularly under the globally recognized <strong>One Health framework</strong>, which integrates human, animal, and environmental health.</p>
+        <p class="body-text">The partnership with the University of Illinois has enabled capacity building in specialized areas such as equine medicine, wildlife health, and clinical pathology. Academic staff exchanges, advanced degree training, student internships, and continuing professional development programs have contributed to strengthening veterinary education in Sri Lanka.</p>
+        <p class="body-text">Joint research initiatives focusing on zoonotic diseases, vector-borne illnesses, and reproductive technologies are also underway. These efforts not only enhance veterinary science but also contribute indirectly to public health, food security, and ecosystem sustainability.</p>
+      </div>
+      <div class="icon-box">🐾</div>
+    </div>
+    <h3 class="sub-title">Key Activities</h3>
+    <ul class="activity-list">
+      <li class="activity-item"><strong>Equine Medicine</strong>Specialized capacity building in equine &amp; wildlife health</li>
+      <li class="activity-item"><strong>Zoonotic Diseases</strong>Joint research on zoonotic and vector-borne illness</li>
+      <li class="activity-item"><strong>Staff Exchange</strong>Academic exchanges and advanced degree training programs</li>
+      <li class="activity-item"><strong>Reproductive Tech</strong>Reproductive technologies and clinical pathology research</li>
+    </ul>
+  </div>
+
+  <!-- ENERGY -->
+  <div class="focus-section" id="energy">
+    <div class="two-col">
+      <div>
+        <h2 class="section-title">Renewable Energy &amp; Technological Innovation</h2>
+        <p class="body-text">In the field of renewable energy, particularly solar technology, the collaboration has made significant progress in research, training, and prototype development. Since 2012, multiple awareness and capacity-building programs have been conducted across Sri Lankan universities to promote solar energy technologies and encourage innovation among students and academics.</p>
+        <p class="body-text">Research efforts have focused on thin-film solar cell development, prototype manufacturing, and technology transfer between academia and industry. These initiatives have been supported by international expertise, including contributions from Sivananthan Laboratories and leading US research institutions.</p>
+        <p class="body-text">Structured training programs have been implemented for school students, teachers, and technical personnel, creating a broader ecosystem of solar energy literacy and technical competence across Sri Lanka.</p>
+      </div>
+      <div class="icon-box">☀️</div>
+    </div>
+    <h3 class="sub-title">Key Activities</h3>
+    <ul class="activity-list">
+      <li class="activity-item"><strong>Thin-Film Solar</strong>Solar cell research, prototype development &amp; manufacturing</li>
+      <li class="activity-item"><strong>Tech Transfer</strong>Technology transfer between academia and industry partners</li>
+      <li class="activity-item"><strong>Solar Literacy</strong>Training programs for schools, teachers &amp; technical colleges</li>
+      <li class="activity-item"><strong>University Programs</strong>Awareness programs across multiple Sri Lankan universities since 2012</li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <p>© <span id="yr"></span> Peradeniya–Illinois–Sivananthan Collaboration Center &nbsp;|&nbsp; University of Peradeniya, Sri Lanka &nbsp;|&nbsp; <a href="contact.html">Contact Us</a></p>
+</footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  function showTab(id,el){
+    document.querySelectorAll('.focus-section').forEach(s=>s.classList.remove('active'));
+    document.querySelectorAll('.focus-tab').forEach(t=>t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    el.classList.add('active');
+  }
+</script>
+</body>
+</html>
