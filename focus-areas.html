@@ -20,70 +20,128 @@
     nav ul li a:hover,nav ul li a.active{background:rgba(255,255,255,.15);color:#fff;}
     .hamburger{display:none;background:none;border:none;cursor:pointer;padding:12px;}
     .hamburger span{display:block;width:22px;height:2px;background:#fff;margin:5px 0;}
+
     .banner-img{width:100%;height:240px;object-fit:cover;}
     .page-banner{background:var(--navy);padding:40px 5%;text-align:center;}
     .page-banner .bc{font-size:.8rem;color:rgba(255,255,255,.5);margin-bottom:8px;}
     .page-banner .bc a{color:#90cdf4;}
     .page-banner h1{font-family:'Merriweather',serif;font-size:clamp(1.4rem,3vw,2.2rem);font-weight:900;color:var(--gold);text-transform:uppercase;}
     .page-banner p{color:rgba(255,255,255,.75);margin-top:8px;font-size:.92rem;max-width:680px;margin-left:auto;margin-right:auto;}
+
     .main-wrap{max-width:1200px;margin:0 auto;padding:48px 5% 64px;}
-    /* Tab nav */
-    .tabs{display:flex;border-bottom:3px solid var(--navy);margin-bottom:40px;flex-wrap:wrap;gap:0;}
-    .tab{padding:12px 20px;font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;cursor:pointer;color:#555;border-bottom:3px solid transparent;margin-bottom:-3px;transition:all .2s;}
+
+    /* Tabs */
+    .tabs{display:flex;border-bottom:3px solid var(--navy);margin-bottom:40px;flex-wrap:wrap;}
+    .tab{padding:12px 20px;font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;cursor:pointer;color:#555;border-bottom:3px solid transparent;margin-bottom:-3px;transition:all .2s;white-space:nowrap;}
     .tab:hover{color:var(--navy);}
     .tab.active{color:var(--navy);border-bottom-color:var(--gold);}
     .panel{display:none;}
     .panel.active{display:block;}
-    /* Panel layout */
-    .p-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;margin-bottom:28px;}
-    .p-imgs{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-    .p-imgs img{width:100%;height:160px;object-fit:cover;border-radius:3px;}
-    .p-imgs img.wide{grid-column:span 2;height:200px;}
+
+    /* Content layout */
+    .p-intro{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;margin-bottom:32px;}
     h2.sec{font-family:'Merriweather',serif;font-size:1.3rem;color:var(--navy);border-left:5px solid var(--gold);padding-left:14px;margin-bottom:18px;}
-    h3.sub{font-family:'Merriweather',serif;font-size:1.05rem;color:var(--navy);margin:22px 0 10px;}
+    h3.sub{font-family:'Merriweather',serif;font-size:1.05rem;color:var(--navy);margin:24px 0 12px;}
     p.bt{font-size:.95rem;line-height:1.85;color:#333;margin-bottom:14px;}
-    .act-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px;}
+    .act-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:4px;}
     .act{background:var(--light);border-left:4px solid var(--navy);padding:14px 16px;border-radius:2px;}
     .act strong{display:block;color:var(--navy);font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px;}
     .act span{font-size:.86rem;color:#444;line-height:1.6;}
+
+    /* Image gallery grid */
+    .img-gallery{margin-top:32px;}
+    .img-gallery h3{font-family:'Merriweather',serif;font-size:1.05rem;color:var(--navy);margin-bottom:16px;border-left:5px solid var(--gold);padding-left:14px;}
+    .img-grid{display:grid;gap:10px;}
+    .img-grid.cols-3{grid-template-columns:repeat(3,1fr);}
+    .img-grid.cols-4{grid-template-columns:repeat(4,1fr);}
+    .img-grid.cols-5{grid-template-columns:repeat(5,1fr);}
+    .img-grid img{width:100%;height:180px;object-fit:cover;border-radius:3px;cursor:pointer;transition:transform .25s,opacity .25s;}
+    .img-grid img:hover{transform:scale(1.03);opacity:.92;}
+    .img-grid img.tall{height:220px;}
+
+    /* Featured first image */
+    .feat-img{width:100%;height:260px;object-fit:cover;border-radius:3px;cursor:pointer;transition:transform .25s;}
+    .feat-img:hover{transform:scale(1.02);}
+
+    /* Lightbox */
+    .lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:999;align-items:center;justify-content:center;flex-direction:column;}
+    .lb.open{display:flex;}
+    .lb img{max-width:90vw;max-height:82vh;border-radius:3px;object-fit:contain;}
+    .lb-close{position:absolute;top:20px;right:28px;color:#fff;font-size:2.2rem;cursor:pointer;background:none;border:none;line-height:1;}
+    .lb-cap{color:rgba(255,255,255,.7);font-size:.85rem;margin-top:12px;}
+    .lb-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.12);border:none;color:#fff;font-size:2rem;cursor:pointer;padding:10px 18px;border-radius:3px;transition:background .2s;}
+    .lb-nav:hover{background:rgba(255,255,255,.25);}
+    .lb-prev{left:16px;}
+    .lb-next{right:16px;}
+
     footer{background:var(--navy);color:rgba(255,255,255,.7);text-align:center;padding:20px;font-size:.82rem;}
     footer a{color:#90cdf4;}
-    @media(max-width:860px){.p-grid{grid-template-columns:1fr;}.act-grid{grid-template-columns:1fr;}}
-    @media(max-width:680px){.hamburger{display:block;}nav ul{flex-direction:column;display:none;width:100%;}nav ul.open{display:flex;}nav ul li a{padding:12px 20px;border-top:1px solid rgba(255,255,255,.1);}.nav-inner{flex-wrap:wrap;padding:0;}.topbar{padding:8px 4%;}.topbar-title{font-size:1.05rem;}.tabs{overflow-x:auto;}.p-imgs{grid-template-columns:1fr;}.p-imgs img.wide{grid-column:span 1;}}
+
+    @media(max-width:900px){
+      .p-intro{grid-template-columns:1fr;}
+      .img-grid.cols-4,.img-grid.cols-5{grid-template-columns:repeat(3,1fr);}
+    }
+    @media(max-width:600px){
+      .act-grid{grid-template-columns:1fr;}
+      .img-grid.cols-3,.img-grid.cols-4,.img-grid.cols-5{grid-template-columns:repeat(2,1fr);}
+      .img-grid img{height:130px;}
+      .lb-nav{display:none;}
+    }
+    @media(max-width:680px){
+      .hamburger{display:block;}
+      nav ul{flex-direction:column;display:none;width:100%;}
+      nav ul.open{display:flex;}
+      nav ul li a{padding:12px 20px;border-top:1px solid rgba(255,255,255,.1);}
+      .nav-inner{flex-wrap:wrap;padding:0;}
+      .topbar{padding:8px 4%;}
+      .topbar-title{font-size:1.05rem;}
+      .tabs{overflow-x:auto;flex-wrap:nowrap;}
+    }
   </style>
 </head>
 <body>
-<div class="topbar"><img src="pera.jpg" alt="UoP Crest" class="logo"/><div class="topbar-title">University of<br>Peradeniya</div></div>
+
+<div class="topbar">
+  <img src="pera.jpg" alt="UoP Crest" class="logo"/>
+  <div class="topbar-title">University of<br>Peradeniya</div>
+</div>
+
 <nav><div class="nav-inner">
   <button class="hamburger" onclick="document.getElementById('nm').classList.toggle('open')"><span></span><span></span><span></span></button>
   <ul id="nm">
-    <li><a href="index.html">HOME</a></li><li><a href="about.html">ABOUT US</a></li><li><a href="focus-areas.html" class="active">FOCUS AREAS</a></li><li><a href="history.html">HISTORY</a></li><li><a href="events.html">EVENTS</a></li><li><a href="gallery.html">GALLERY</a></li><li><a href="contact.html">CONTACT</a></li>
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="about.html">ABOUT US</a></li>
+    <li><a href="focus-areas.html" class="active">FOCUS AREAS</a></li>
+    <li><a href="history.html">HISTORY</a></li>
+    <li><a href="events.html">EVENTS</a></li>
+    <li><a href="gallery.html">GALLERY</a></li>
+    <li><a href="contact.html">CONTACT</a></li>
   </ul>
 </div></nav>
 
-<img src="5.jpg" alt="Focus Areas" class="banner-img"/>
+<img src="11.jpg" alt="Focus Areas" class="banner-img"/>
 <div class="page-banner">
   <div class="bc"><a href="index.html">Home</a> / Focus Areas</div>
   <h1>Focus Areas</h1>
-  <p>Four interdisciplinary pillars driving research, innovation, and capacity development.</p>
+  <p>Four interdisciplinary pillars driving research, innovation, and capacity development across Sri Lanka and the United States.</p>
 </div>
 
 <div class="main-wrap">
   <div class="tabs">
-    <div class="tab active" onclick="showTab('agri',this)">🌾 Agriculture</div>
+    <div class="tab active" onclick="showTab('agri',this)">🌾 Agriculture &amp; Food Security</div>
     <div class="tab" onclick="showTab('med',this)">🏥 Medical Sciences</div>
     <div class="tab" onclick="showTab('vet',this)">🐾 Veterinary &amp; One Health</div>
     <div class="tab" onclick="showTab('energy',this)">☀️ Renewable Energy</div>
   </div>
 
-  <!-- AGRICULTURE: images 5,6,7 -->
+  <!-- ══ AGRICULTURE: images 11–19 ══ -->
   <div class="panel active" id="agri">
-    <div class="p-grid">
+    <div class="p-intro">
       <div>
         <h2 class="sec">Agriculture, Food Security &amp; Innovation</h2>
         <p class="bt">Agricultural collaboration remains one of the foundational pillars of this partnership. Despite early success in introducing soybean cultivation, challenges such as low yields and limited processing infrastructure prevented widespread adoption in Sri Lanka. The renewed collaboration seeks to address these issues through scientific and technological innovation.</p>
         <p class="bt">Through joint efforts with the University of Illinois and its globally recognized soybean research programs, new high-yield soybean varieties have been introduced and are currently undergoing evaluation under Sri Lankan agroecological conditions.</p>
-        <p class="bt">Modern agricultural technologies, including SMART FARM systems, are being explored to improve productivity, sustainability, and resilience. A further dimension involves the utilization of locally produced soybean products as sustainable alternatives for animal feed, particularly in the poultry sector.</p>
+        <p class="bt">Modern agricultural technologies, including SMART FARM systems, are being explored to improve productivity, sustainability, and resilience. A further dimension involves the utilization of locally produced soybean products as sustainable alternatives for animal feed, particularly in the poultry sector — with implications for both cost reduction and import substitution.</p>
         <h3 class="sub">Key Activities</h3>
         <div class="act-grid">
           <div class="act"><strong>Soybean Varieties</strong><span>High-yield variety evaluation under Sri Lankan agroecological conditions</span></div>
@@ -92,22 +150,34 @@
           <div class="act"><strong>Innovation Lab</strong><span>Partnership with UI Soybean Innovation Lab &amp; Dept. of Agriculture</span></div>
         </div>
       </div>
-      <div class="p-imgs">
-        <img src="5.jpg" alt="Agriculture" class="wide"/>
-        <img src="6.jpg" alt="Soybean"/>
-        <img src="7.jpg" alt="Farming"/>
+      <div>
+        <img src="11.jpg" alt="Agriculture" class="feat-img" onclick="openLb('agri',0)"/>
+      </div>
+    </div>
+
+    <div class="img-gallery">
+      <h3>Photo Gallery</h3>
+      <div class="img-grid cols-4" id="agri-grid">
+        <img src="12.jpg" alt="Agriculture 2"  onclick="openLb('agri',1)"/>
+        <img src="13.jpg" alt="Agriculture 3"  onclick="openLb('agri',2)"/>
+        <img src="14.jpg" alt="Agriculture 4"  onclick="openLb('agri',3)"/>
+        <img src="15.jpg" alt="Agriculture 5"  onclick="openLb('agri',4)"/>
+        <img src="16.jpg" alt="Agriculture 6"  onclick="openLb('agri',5)"/>
+        <img src="17.jpg" alt="Agriculture 7"  onclick="openLb('agri',6)"/>
+        <img src="18.png" alt="Agriculture 8"  onclick="openLb('agri',7)"/>
+        <img src="19.png" alt="Agriculture 9"  onclick="openLb('agri',8)"/>
       </div>
     </div>
   </div>
 
-  <!-- MEDICAL: images 8,9,10,11 -->
+  <!-- ══ MEDICAL: (existing images kept) ══ -->
   <div class="panel" id="med">
-    <div class="p-grid">
+    <div class="p-intro">
       <div>
         <h2 class="sec">Medical Education &amp; Health Systems Development</h2>
         <p class="bt">The collaboration in medical education represents one of the most historically significant aspects of this partnership. The influence of UIC in shaping Sri Lanka's medical education system is well established, particularly through the training of pioneering academics who transformed teaching and curriculum development at the University of Peradeniya.</p>
         <p class="bt">Modern developments include the integration of artificial intelligence into medical education, as well as renewed emphasis on educational research, curriculum innovation, and faculty development. These efforts are complemented by extensive clinical research collaborations aimed at improving patient care.</p>
-        <p class="bt">Research areas include chronic kidney disease of unknown etiology, infectious diseases, neurological disorders, mental health challenges among youth, and advancements in surgical techniques including robotic surgery.</p>
+        <p class="bt">Research areas include chronic kidney disease of unknown etiology (CKDu), infectious diseases, neurological disorders, mental health challenges among youth, and advancements in surgical techniques including robotic surgery.</p>
         <h3 class="sub">Research Areas</h3>
         <div class="act-grid">
           <div class="act"><strong>CKDu Research</strong><span>Chronic kidney disease of unknown etiology — joint clinical investigation</span></div>
@@ -118,18 +188,22 @@
           <div class="act"><strong>Faculty Exchange</strong><span>Academic exchanges, workshops, and research training initiatives</span></div>
         </div>
       </div>
-      <div class="p-imgs">
-        <img src="8.jpg" alt="Medical" class="wide"/>
-        <img src="9.jpg" alt="Health"/>
-        <img src="10.jpg" alt="Research"/>
+      <div>
+        <img src="8.jpg" alt="Medical Sciences" class="feat-img" onclick="openLb('med',0)"/>
       </div>
     </div>
-    <img src="11.jpg" alt="Medical Education" style="width:100%;height:200px;object-fit:cover;border-radius:3px;margin-top:16px;"/>
+    <div class="img-gallery">
+      <h3>Photo Gallery</h3>
+      <div class="img-grid cols-3" id="med-grid">
+        <img src="9.jpg"  alt="Medical 2" onclick="openLb('med',1)"/>
+        <img src="10.jpg" alt="Medical 3" onclick="openLb('med',2)"/>
+      </div>
+    </div>
   </div>
 
-  <!-- VETERINARY: images 12,13,14 -->
+  <!-- ══ VETERINARY: images 20–24 ══ -->
   <div class="panel" id="vet">
-    <div class="p-grid">
+    <div class="p-intro">
       <div>
         <h2 class="sec">Veterinary Science &amp; the One Health Framework</h2>
         <p class="bt">Veterinary medical education and research form another critical component of this collaboration, particularly under the globally recognized <strong>One Health framework</strong>, which integrates human, animal, and environmental health.</p>
@@ -143,20 +217,27 @@
           <div class="act"><strong>Reproductive Tech</strong><span>Reproductive technologies and clinical pathology research</span></div>
         </div>
       </div>
-      <div class="p-imgs">
-        <img src="12.jpg" alt="Veterinary" class="wide"/>
-        <img src="13.jpg" alt="One Health"/>
-        <img src="14.jpg" alt="Wildlife"/>
+      <div>
+        <img src="20.jpg" alt="Veterinary Science" class="feat-img" onclick="openLb('vet',0)"/>
+      </div>
+    </div>
+    <div class="img-gallery">
+      <h3>Photo Gallery</h3>
+      <div class="img-grid cols-4" id="vet-grid">
+        <img src="21.jpg" alt="Veterinary 2" onclick="openLb('vet',1)"/>
+        <img src="22.jpg" alt="Veterinary 3" onclick="openLb('vet',2)"/>
+        <img src="23.jpg" alt="Veterinary 4" onclick="openLb('vet',3)"/>
+        <img src="24.jpg" alt="Veterinary 5" onclick="openLb('vet',4)"/>
       </div>
     </div>
   </div>
 
-  <!-- ENERGY: images 15,16,17 -->
+  <!-- ══ RENEWABLE ENERGY: images 25–37 ══ -->
   <div class="panel" id="energy">
-    <div class="p-grid">
+    <div class="p-intro">
       <div>
         <h2 class="sec">Renewable Energy &amp; Technological Innovation</h2>
-        <p class="bt">In the field of renewable energy, particularly solar technology, the collaboration has made significant progress in research, training, and prototype development. Since 2012, multiple awareness and capacity-building programs have been conducted across Sri Lankan universities to promote solar energy technologies.</p>
+        <p class="bt">In the field of renewable energy, particularly solar technology, the collaboration has made significant progress in research, training, and prototype development. Since 2012, multiple awareness and capacity-building programs have been conducted across Sri Lankan universities to promote solar energy technologies and encourage innovation among students and academics.</p>
         <p class="bt">Research efforts have focused on thin-film solar cell development, prototype manufacturing, and technology transfer between academia and industry. These initiatives have been supported by international expertise, including contributions from Sivananthan Laboratories and leading US research institutions.</p>
         <p class="bt">Structured training programs have been implemented for school students, teachers, and technical personnel, creating a broader ecosystem of solar energy literacy and technical competence across Sri Lanka.</p>
         <h3 class="sub">Key Activities</h3>
@@ -167,33 +248,96 @@
           <div class="act"><strong>University Programs</strong><span>Awareness programs across Sri Lankan universities since 2012</span></div>
         </div>
       </div>
-      <div class="p-imgs">
-        <img src="15.jpg" alt="Solar Energy" class="wide"/>
-        <img src="16.png" alt="Technology"/>
-        <img src="17.jpg" alt="Innovation"/>
+      <div>
+        <img src="25.jpg" alt="Renewable Energy" class="feat-img" onclick="openLb('energy',0)"/>
+      </div>
+    </div>
+    <div class="img-gallery">
+      <h3>Photo Gallery</h3>
+      <div class="img-grid cols-4" id="energy-grid">
+        <img src="26.jpg" alt="Energy 2"  onclick="openLb('energy',1)"/>
+        <img src="27.jpg" alt="Energy 3"  onclick="openLb('energy',2)"/>
+        <img src="28.jpg" alt="Energy 4"  onclick="openLb('energy',3)"/>
+        <img src="29.jpg" alt="Energy 5"  onclick="openLb('energy',4)"/>
+        <img src="30.jpg" alt="Energy 6"  onclick="openLb('energy',5)"/>
+        <img src="31.jpg" alt="Energy 7"  onclick="openLb('energy',6)"/>
+        <img src="32.jpg" alt="Energy 8"  onclick="openLb('energy',7)"/>
+        <img src="33.jpg" alt="Energy 9"  onclick="openLb('energy',8)"/>
+        <img src="34.jpg" alt="Energy 10" onclick="openLb('energy',9)"/>
+        <img src="35.jpg" alt="Energy 11" onclick="openLb('energy',10)"/>
+        <img src="36.jpg" alt="Energy 12" onclick="openLb('energy',11)"/>
+        <img src="37.jpg" alt="Energy 13" onclick="openLb('energy',12)"/>
       </div>
     </div>
   </div>
+
+</div><!-- end main-wrap -->
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb">
+  <button class="lb-close" onclick="closeLb()">×</button>
+  <button class="lb-nav lb-prev" onclick="navLb(-1)">&#8249;</button>
+  <img id="lb-img" src="" alt=""/>
+  <div class="lb-cap" id="lb-cap"></div>
+  <button class="lb-nav lb-next" onclick="navLb(1)">&#8250;</button>
 </div>
 
-<footer><p>© <span id="yr"></span> Peradeniya–Illinois–Sivananthan Collaboration Center &nbsp;|&nbsp; University of Peradeniya, Sri Lanka &nbsp;|&nbsp; <a href="contact.html">Contact Us</a></p></footer>
+<footer>
+  <p>© <span id="yr"></span> Peradeniya–Illinois–Sivananthan Collaboration Center &nbsp;|&nbsp; University of Peradeniya, Sri Lanka &nbsp;|&nbsp; <a href="contact.html">Contact Us</a></p>
+</footer>
+
 <script>
-  document.getElementById('yr').textContent=new Date().getFullYear();
-  function showTab(id,el){
-    document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
-    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    el.classList.add('active');
-    // handle anchor
-    history.replaceState(null,'','#'+id);
-  }
-  // Auto-open from anchor
-  const h=location.hash.replace('#','');
-  if(h&&document.getElementById(h)){
-    document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
-    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-    document.getElementById(h).classList.add('active');
-    document.querySelector('[onclick*="'+h+'"]').classList.add('active');
-  }
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+// Tab switcher
+function showTab(id, el) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  el.classList.add('active');
+  history.replaceState(null, '', '#' + id);
+}
+
+// Auto open from URL hash
+const h = location.hash.replace('#', '');
+if (h && document.getElementById(h)) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(h).classList.add('active');
+  const btn = document.querySelector('.tab[onclick*="' + h + '"]');
+  if (btn) btn.classList.add('active');
+}
+
+// Lightbox
+const galleries = {
+  agri:   ['11.jpg','12.jpg','13.jpg','14.jpg','15.jpg','16.jpg','17.jpg','18.png','19.png'],
+  med:    ['8.jpg','9.jpg','10.jpg'],
+  vet:    ['20.jpg','21.jpg','22.jpg','23.jpg','24.jpg'],
+  energy: ['25.jpg','26.jpg','27.jpg','28.jpg','29.jpg','30.jpg','31.jpg','32.jpg','33.jpg','34.jpg','35.jpg','36.jpg','37.jpg']
+};
+let curGal = '', curIdx = 0;
+
+function openLb(gal, idx) {
+  curGal = gal; curIdx = idx;
+  showLb();
+}
+function showLb() {
+  const imgs = galleries[curGal];
+  document.getElementById('lb-img').src = imgs[curIdx];
+  document.getElementById('lb-cap').textContent = (curIdx + 1) + ' / ' + imgs.length;
+  document.getElementById('lb').classList.add('open');
+}
+function closeLb() { document.getElementById('lb').classList.remove('open'); }
+function navLb(dir) {
+  const imgs = galleries[curGal];
+  curIdx = (curIdx + dir + imgs.length) % imgs.length;
+  showLb();
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeLb();
+  if (e.key === 'ArrowRight') navLb(1);
+  if (e.key === 'ArrowLeft') navLb(-1);
+});
 </script>
-</body></html>
+</body>
+</html>
